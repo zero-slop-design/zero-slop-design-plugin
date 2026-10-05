@@ -1,0 +1,4 @@
+interface:
+  display_name: "Interface implementation"
+  short_description: "Use DESIGN.md to change an interface."
+  default_prompt: "Use $apply-design to use the design file to make the specified interface changes."

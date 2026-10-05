@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design brief"
+  short_description: "Write a design brief from developer instructions."
+  default_prompt: "Use $define-design to make a design brief that records the developer selections."

@@ -1,0 +1,17 @@
+{
+  "name": "zero-slop-design",
+  "owner": {
+    "name": "zero-slop-design"
+  },
+  "metadata": {
+    "description": "Design skills for coding agents.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "zero-slop-design",
+      "source": "./",
+      "description": "Skills to define, apply, and maintain developer design selections."
+    }
+  ]
+}

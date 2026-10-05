@@ -1,0 +1,17 @@
+{
+  "name": "zero-slop-design",
+  "version": "0.1.0",
+  "description": "Skills to define, apply, and maintain developer design selections.",
+  "author": {
+    "name": "zero-slop-design"
+  },
+  "homepage": "https://github.com/zero-slop-design/zero-slop-design-plugin",
+  "repository": "https://github.com/zero-slop-design/zero-slop-design-plugin",
+  "license": "MIT",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "zero-slop-design",
+    "shortDescription": "Design skills and DESIGN.md tools",
+    "longDescription": "Define design selections, write DESIGN.md, and compare an interface with its design data."
+  }
+}

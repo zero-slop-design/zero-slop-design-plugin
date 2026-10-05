@@ -1,0 +1,17 @@
+import { mkdir, readdir, writeFile, readFile } from 'node:fs/promises';
+import { spawnSync } from 'node:child_process';
+import { resolve, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { createHash } from 'node:crypto';
+const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
+const checked=spawnSync(process.execPath,[resolve(root,'scripts/validate.mjs')],{stdio:'inherit'});
+if(checked.status!==0)process.exit(checked.status??1);
+const pkg=JSON.parse(await readFile(resolve(root,'package.json'),'utf8'));
+const folder=resolve(root,'dist');await mkdir(folder,{recursive:true});
+const entries=(await readdir(root)).filter((name)=>!['.git','node_modules','dist','.DS_Store'].includes(name));
+const name=`zero-slop-design-${pkg.version}.tar.gz`,output=resolve(folder,name);
+const packed=spawnSync('tar',['-czf',output,'-C',root,...entries],{stdio:'inherit',env:{...process.env,COPYFILE_DISABLE:'1'}});
+if(packed.status!==0)process.exit(packed.status??1);
+const hash=createHash('sha256').update(await readFile(output)).digest('hex');
+await writeFile(resolve(folder,`${name}.sha256`),`${hash}  ${name}\n`);
+process.stdout.write(`Package: dist/${name}\nSHA-256: ${hash}\n`);

@@ -1,0 +1,11 @@
+{
+  "name": "zero-slop-design",
+  "version": "0.1.0",
+  "description": "Skills to define, apply, and maintain developer design selections.",
+  "author": {
+    "name": "zero-slop-design"
+  },
+  "homepage": "https://github.com/zero-slop-design/zero-slop-design-plugin",
+  "repository": "https://github.com/zero-slop-design/zero-slop-design-plugin",
+  "license": "MIT"
+}

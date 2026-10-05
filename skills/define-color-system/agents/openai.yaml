@@ -1,0 +1,4 @@
+interface:
+  display_name: "Color data"
+  short_description: "Set color roles and modes in DESIGN.md."
+  default_prompt: "Use $define-color-system to set color roles and applicable interface modes."

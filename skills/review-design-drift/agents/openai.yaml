@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design drift inspection"
+  short_description: "Compare an interface with DESIGN.md."
+  default_prompt: "Use $review-design-drift to find differences between an interface and its design file."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design file changes"
+  short_description: "Change specified selections in DESIGN.md."
+  default_prompt: "Use $update-design-md to change the specified design data and keep other selections."

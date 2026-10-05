@@ -1,0 +1,4 @@
+interface:
+  display_name: "Responsive layout data"
+  short_description: "Set layout behavior in DESIGN.md."
+  default_prompt: "Use $define-responsive-layout to set layout data across the target viewport range."

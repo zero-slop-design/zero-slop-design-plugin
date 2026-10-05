@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design file"
+  short_description: "Write DESIGN.md from a design brief."
+  default_prompt: "Use $create-design-md to make a design file from the approved design brief."

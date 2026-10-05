@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design token export"
+  short_description: "Design token export for interface design tasks."
+  default_prompt: "Use $export-design-tokens to make token output for the specified project format."

@@ -1,0 +1,15 @@
+{
+  "version": "0.1.0",
+  "inputs": {
+    "package-lock.json": "b84770e61a3666cb8ac7a63f65cdf20e6c2af4200b5941805629c04917338519",
+    "package.json": "198b8ef57c6482429ae3fe38dc1e59aa5ca518fe78657f2c9c02ad1907c44f4a",
+    "packages/zsd-lint/src/index.mjs": "de9e1b6dd41c165c90fea17a90c5959e699795bdc871637c055a96e115d4d440",
+    "scripts/build.mjs": "3a34414c8e4c40108fa1e2ec2d198ad3d646f0c6e2c49f16fd870ed81dd3d16a",
+    "src/cli.mjs": "445ee6ccaa0d52c71c64f4d0f856a2302e57cfdcce7851d673557e02c64cf34b",
+    "src/design.mjs": "c71b2c7ef4cae9c868fafde4810593d505892a3e4460d564860a14b56f3ef6ff",
+    "src/export.mjs": "c744a700392f8204142f2e2922814af64fe7b1aa6b34416769cf7cc8c2ddb04f",
+    "src/language.mjs": "36d74056015483173fe8539e7618d07824bf779f7cfce440c58216b4eda3387e"
+  },
+  "runtime": "7d8aff593a7f274d7ef6d84ebdf01b3f0f017ddb6c3efa9211d2891d4f14c3bb",
+  "validatorData": "6244e829849e63b55316258f32e1110833d193b79943ec79f245b33ebeec2ef8"
+}

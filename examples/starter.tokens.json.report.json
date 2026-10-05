@@ -1,0 +1,290 @@
+{
+  "format": "dtcg",
+  "formatVersion": "2025.10",
+  "mode": "default",
+  "mapping": [
+    {
+      "source": "colors.primary",
+      "target": "colors.primary"
+    },
+    {
+      "source": "colors.primary-hover",
+      "target": "colors.primary-hover"
+    },
+    {
+      "source": "colors.on-primary",
+      "target": "colors.on-primary"
+    },
+    {
+      "source": "colors.surface",
+      "target": "colors.surface"
+    },
+    {
+      "source": "colors.on-surface",
+      "target": "colors.on-surface"
+    },
+    {
+      "source": "colors.surface-muted",
+      "target": "colors.surface-muted"
+    },
+    {
+      "source": "colors.on-surface-muted",
+      "target": "colors.on-surface-muted"
+    },
+    {
+      "source": "colors.outline",
+      "target": "colors.outline"
+    },
+    {
+      "source": "colors.error",
+      "target": "colors.error"
+    },
+    {
+      "source": "colors.on-error",
+      "target": "colors.on-error"
+    },
+    {
+      "source": "spacing.xs",
+      "target": "spacing.xs"
+    },
+    {
+      "source": "spacing.sm",
+      "target": "spacing.sm"
+    },
+    {
+      "source": "spacing.md",
+      "target": "spacing.md"
+    },
+    {
+      "source": "spacing.lg",
+      "target": "spacing.lg"
+    },
+    {
+      "source": "spacing.xl",
+      "target": "spacing.xl"
+    },
+    {
+      "source": "spacing.section",
+      "target": "spacing.section"
+    },
+    {
+      "source": "spacing.control-height",
+      "target": "spacing.control-height"
+    },
+    {
+      "source": "rounded.none",
+      "target": "rounded.none"
+    },
+    {
+      "source": "rounded.sm",
+      "target": "rounded.sm"
+    },
+    {
+      "source": "rounded.md",
+      "target": "rounded.md"
+    },
+    {
+      "source": "typography.headline-md",
+      "target": "typography.headline-md"
+    },
+    {
+      "source": "typography.body-md",
+      "target": "typography.body-md"
+    },
+    {
+      "source": "typography.label-md",
+      "target": "typography.label-md"
+    },
+    {
+      "source": "components.button-primary.backgroundColor",
+      "target": "components.button-primary.backgroundColor"
+    },
+    {
+      "source": "components.button-primary.textColor",
+      "target": "components.button-primary.textColor"
+    },
+    {
+      "source": "components.button-primary.typography",
+      "target": "components.button-primary.typography"
+    },
+    {
+      "source": "components.button-primary.rounded",
+      "target": "components.button-primary.rounded"
+    },
+    {
+      "source": "components.button-primary.padding",
+      "target": "components.button-primary.padding"
+    },
+    {
+      "source": "components.button-primary.height",
+      "target": "components.button-primary.height"
+    },
+    {
+      "source": "components.button-primary-hover.backgroundColor",
+      "target": "components.button-primary-hover.backgroundColor"
+    },
+    {
+      "source": "components.button-primary-hover.textColor",
+      "target": "components.button-primary-hover.textColor"
+    },
+    {
+      "source": "components.button-primary-hover.typography",
+      "target": "components.button-primary-hover.typography"
+    },
+    {
+      "source": "components.button-primary-hover.rounded",
+      "target": "components.button-primary-hover.rounded"
+    },
+    {
+      "source": "components.button-primary-hover.padding",
+      "target": "components.button-primary-hover.padding"
+    },
+    {
+      "source": "components.button-primary-hover.height",
+      "target": "components.button-primary-hover.height"
+    },
+    {
+      "source": "components.button-secondary.backgroundColor",
+      "target": "components.button-secondary.backgroundColor"
+    },
+    {
+      "source": "components.button-secondary.textColor",
+      "target": "components.button-secondary.textColor"
+    },
+    {
+      "source": "components.button-secondary.typography",
+      "target": "components.button-secondary.typography"
+    },
+    {
+      "source": "components.button-secondary.rounded",
+      "target": "components.button-secondary.rounded"
+    },
+    {
+      "source": "components.button-secondary.padding",
+      "target": "components.button-secondary.padding"
+    },
+    {
+      "source": "components.button-secondary.height",
+      "target": "components.button-secondary.height"
+    },
+    {
+      "source": "components.input.backgroundColor",
+      "target": "components.input.backgroundColor"
+    },
+    {
+      "source": "components.input.textColor",
+      "target": "components.input.textColor"
+    },
+    {
+      "source": "components.input.typography",
+      "target": "components.input.typography"
+    },
+    {
+      "source": "components.input.rounded",
+      "target": "components.input.rounded"
+    },
+    {
+      "source": "components.input.padding",
+      "target": "components.input.padding"
+    },
+    {
+      "source": "components.input.height",
+      "target": "components.input.height"
+    },
+    {
+      "source": "components.card.backgroundColor",
+      "target": "components.card.backgroundColor"
+    },
+    {
+      "source": "components.card.textColor",
+      "target": "components.card.textColor"
+    },
+    {
+      "source": "components.card.typography",
+      "target": "components.card.typography"
+    },
+    {
+      "source": "components.card.rounded",
+      "target": "components.card.rounded"
+    },
+    {
+      "source": "components.card.padding",
+      "target": "components.card.padding"
+    },
+    {
+      "source": "components.alert-error.backgroundColor",
+      "target": "components.alert-error.backgroundColor"
+    },
+    {
+      "source": "components.alert-error.textColor",
+      "target": "components.alert-error.textColor"
+    },
+    {
+      "source": "components.alert-error.typography",
+      "target": "components.alert-error.typography"
+    },
+    {
+      "source": "components.alert-error.rounded",
+      "target": "components.alert-error.rounded"
+    },
+    {
+      "source": "components.alert-error.padding",
+      "target": "components.alert-error.padding"
+    },
+    {
+      "source": "x-zsd.layout.content-max",
+      "target": "x-zsd.layout.content-max"
+    },
+    {
+      "source": "x-zsd.layout.viewport-min",
+      "target": "x-zsd.layout.viewport-min"
+    },
+    {
+      "source": "x-zsd.breakpoints.md",
+      "target": "x-zsd.breakpoints.md"
+    },
+    {
+      "source": "x-zsd.border.width-default",
+      "target": "x-zsd.border.width-default"
+    },
+    {
+      "source": "x-zsd.border.color-default",
+      "target": "x-zsd.border.color-default"
+    },
+    {
+      "source": "x-zsd.motion.duration-fast",
+      "target": "x-zsd.motion.duration-fast"
+    },
+    {
+      "source": "x-zsd.motion.easing-standard",
+      "target": "x-zsd.motion.easing-standard"
+    },
+    {
+      "source": "x-zsd.accessibility.target-min",
+      "target": "x-zsd.accessibility.target-min"
+    },
+    {
+      "source": "x-zsd.accessibility.focus-width",
+      "target": "x-zsd.accessibility.focus-width"
+    },
+    {
+      "source": "x-zsd.accessibility.focus-offset",
+      "target": "x-zsd.accessibility.focus-offset"
+    },
+    {
+      "source": "x-zsd.accessibility.focus-color",
+      "target": "x-zsd.accessibility.focus-color"
+    }
+  ],
+  "ignoredMetadata": [
+    "x-zsd.profile",
+    "x-zsd.kind",
+    "x-zsd.source",
+    "x-zsd.review",
+    "x-zsd.intent",
+    "x-zsd.preferences",
+    "x-zsd.implementation",
+    "x-zsd.unresolved"
+  ],
+  "unsupported": []
+}

@@ -1,0 +1,97 @@
+{
+  "version": "0.1.0",
+  "standard": "ASD-STE100 Issue 9",
+  "skills": [
+    {
+      "name": "define-design",
+      "title": "Design brief",
+      "category": "core",
+      "path": "skills/define-design",
+      "description": "Write a design brief from developer instructions. Use before a new interface or a change to its visual identity."
+    },
+    {
+      "name": "create-design-md",
+      "title": "Design file",
+      "category": "core",
+      "path": "skills/create-design-md",
+      "description": "Write DESIGN.md from a design brief. Use when the project must have a design file with tokens and interface instructions."
+    },
+    {
+      "name": "extract-design",
+      "title": "Design extraction",
+      "category": "core",
+      "path": "skills/extract-design",
+      "description": "Record design data from source code, an interface, or images. Use to make DESIGN.md for an available interface."
+    },
+    {
+      "name": "review-design-md",
+      "title": "Design file inspection",
+      "category": "core",
+      "path": "skills/review-design-md",
+      "description": "Examine DESIGN.md for incorrect tokens, missing states, and different instructions for the same item. Use before interface implementation or after changes."
+    },
+    {
+      "name": "update-design-md",
+      "title": "Design file changes",
+      "category": "core",
+      "path": "skills/update-design-md",
+      "description": "Change specified selections in DESIGN.md. Use when the developer changes design data or instructions for an interface."
+    },
+    {
+      "name": "apply-design",
+      "title": "Interface implementation",
+      "category": "core",
+      "path": "skills/apply-design",
+      "description": "Use DESIGN.md to change an interface. Use when a developer must have components, layouts, or styles from the recorded design data."
+    },
+    {
+      "name": "review-design-drift",
+      "title": "Design drift inspection",
+      "category": "core",
+      "path": "skills/review-design-drift",
+      "description": "Compare an interface with DESIGN.md. Use to find differences in tokens, components, states, and responsive behavior."
+    },
+    {
+      "name": "define-typography",
+      "title": "Typography data",
+      "category": "specialty",
+      "path": "skills/define-typography",
+      "description": "Set typography roles and font sources in DESIGN.md. Use for text hierarchy, font selection, or font changes."
+    },
+    {
+      "name": "define-color-system",
+      "title": "Color data",
+      "category": "specialty",
+      "path": "skills/define-color-system",
+      "description": "Set color roles and modes in DESIGN.md. Use for color selection, contrast pairs, or theme changes."
+    },
+    {
+      "name": "define-responsive-layout",
+      "title": "Responsive layout data",
+      "category": "specialty",
+      "path": "skills/define-responsive-layout",
+      "description": "Set layout behavior in DESIGN.md. Use for viewport limits, breakpoints, spacing, or content sequence changes."
+    },
+    {
+      "name": "define-interaction-states",
+      "title": "Interaction state data",
+      "category": "specialty",
+      "path": "skills/define-interaction-states",
+      "description": "Set component states in DESIGN.md. Use for focus, hover, loading, error, selection, and motion behavior."
+    },
+    {
+      "name": "review-accessibility",
+      "title": "Accessibility inspection",
+      "category": "specialty",
+      "path": "skills/review-accessibility",
+      "description": "Examine accessibility instructions or an interface. Use for contrast, keyboard operation, labels, focus, and responsive content."
+    },
+    {
+      "name": "export-design-tokens",
+      "title": "Design token export",
+      "category": "specialty",
+      "path": "skills/export-design-tokens",
+      "description": "Export DESIGN.md tokens as CSS, DTCG JSON, or Tailwind theme data. Use to connect design values to a project token source."
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Accessibility inspection"
+  short_description: "Examine accessibility instructions or an interface."
+  default_prompt: "Use $review-accessibility to find accessibility defects in the specified inspection area."

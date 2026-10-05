@@ -1,0 +1,4 @@
+interface:
+  display_name: "Typography data"
+  short_description: "Set typography roles and font sources in DESIGN.md."
+  default_prompt: "Use $define-typography to set typography data for the developer interface."

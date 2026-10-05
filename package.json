@@ -1,0 +1,24 @@
+{
+  "name": "@zero-slop-design/plugin",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Design skills and DESIGN.md tools for coding agents.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "validate": "node scripts/validate.mjs",
+    "package": "node scripts/package.mjs",
+    "zsd": "node tools/zsd.mjs"
+  },
+  "dependencies": {
+    "@google/design.md": "0.4.0",
+    "yaml": "2.9.1"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}

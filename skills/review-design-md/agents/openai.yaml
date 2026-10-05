@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design file inspection"
+  short_description: "Design file inspection for interface design tasks."
+  default_prompt: "Use $review-design-md to examine a design file against its format and developer instructions."

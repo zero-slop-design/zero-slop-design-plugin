@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design extraction"
+  short_description: "Record design data from source code, an interface, or images."
+  default_prompt: "Use $extract-design to make a design file from available interface data."

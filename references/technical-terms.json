@@ -1,0 +1,1930 @@
+{
+  "standard": "ASD-STE100 Issue 9",
+  "version": 1,
+  "terms": [
+    {
+      "term": "account",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A software identifier with access data.",
+      "forms": [
+        "accounts"
+      ]
+    },
+    {
+      "term": "array",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A sequence of data items.",
+      "forms": [
+        "arraies"
+      ]
+    },
+    {
+      "term": "asset",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A file that supplies a font, image, or icon.",
+      "forms": [
+        "assets"
+      ]
+    },
+    {
+      "term": "background",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The surface behind interface content.",
+      "forms": [
+        "backgrounds"
+      ]
+    },
+    {
+      "term": "body",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The Markdown data after YAML front matter.",
+      "forms": [
+        "bodies"
+      ]
+    },
+    {
+      "term": "command",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "An instruction to a software tool.",
+      "forms": [
+        "commands"
+      ]
+    },
+    {
+      "term": "comparison",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "An inspection of 2 data sets for differences.",
+      "forms": [
+        "comparisons"
+      ]
+    },
+    {
+      "term": "component",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "An interface item with related structure and behavior.",
+      "forms": [
+        "components"
+      ]
+    },
+    {
+      "term": "component family",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A set of related interface components.",
+      "forms": [
+        "component families"
+      ]
+    },
+    {
+      "term": "computed style",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A CSS value from the browser after style resolution.",
+      "forms": [
+        "computed styles"
+      ]
+    },
+    {
+      "term": "content",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "Data that an interface shows to a user.",
+      "forms": [
+        "contents"
+      ]
+    },
+    {
+      "term": "default state",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The component condition before user input.",
+      "forms": [
+        "default states"
+      ]
+    },
+    {
+      "term": "defect",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A difference from a specified interface condition.",
+      "forms": [
+        "defects"
+      ]
+    },
+    {
+      "term": "design",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The interface selections for appearance and behavior.",
+      "forms": [
+        "designs"
+      ]
+    },
+    {
+      "term": "design brief",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A document with developer selections for an interface.",
+      "forms": [
+        "design briefs"
+      ]
+    },
+    {
+      "term": "design drift",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A difference between an interface and its design data.",
+      "forms": [
+        "design drifts"
+      ]
+    },
+    {
+      "term": "developer",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The person who makes or changes the project software.",
+      "forms": [
+        "developers"
+      ]
+    },
+    {
+      "term": "document",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A file with data and instructions.",
+      "forms": [
+        "documents"
+      ]
+    },
+    {
+      "term": "drift report",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A document with measured design differences.",
+      "forms": [
+        "drift reports"
+      ]
+    },
+    {
+      "term": "file",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A set with a name of of data in computer storage.",
+      "forms": [
+        "files"
+      ]
+    },
+    {
+      "term": "file format",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The structure of data in a file.",
+      "forms": [
+        "file formats"
+      ]
+    },
+    {
+      "term": "focus",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The interface condition that receives keyboard input.",
+      "forms": [
+        "focuses"
+      ]
+    },
+    {
+      "term": "focus visibility",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The status indicator of keyboard focus.",
+      "forms": [
+        "focus visibilities"
+      ]
+    },
+    {
+      "term": "foreground",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The text or control in front of a background.",
+      "forms": [
+        "foregrounds"
+      ]
+    },
+    {
+      "term": "format",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The structure of software data.",
+      "forms": [
+        "formats"
+      ]
+    },
+    {
+      "term": "heading",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "Text that identifies a content division.",
+      "forms": [
+        "headings"
+      ]
+    },
+    {
+      "term": "icon",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "An image that identifies an interface function.",
+      "forms": [
+        "icons"
+      ]
+    },
+    {
+      "term": "identifier",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A name that a software tool uses for an item.",
+      "forms": [
+        "identifiers"
+      ]
+    },
+    {
+      "term": "image",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "Visual data from a file or screenshot.",
+      "forms": [
+        "images"
+      ]
+    },
+    {
+      "term": "implementation",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "Project software that supplies interface behavior.",
+      "forms": [
+        "implementations"
+      ]
+    },
+    {
+      "term": "inspection area",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The routes, states, and conditions included in an inspection.",
+      "forms": [
+        "inspection areas"
+      ]
+    },
+    {
+      "term": "interface action",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A task that starts from a user control.",
+      "forms": [
+        "interface actions"
+      ]
+    },
+    {
+      "term": "interface state",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The condition of an interface item.",
+      "forms": [
+        "interface states"
+      ]
+    },
+    {
+      "term": "interaction",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "Input and response between the user and interface.",
+      "forms": [
+        "interactions"
+      ]
+    },
+    {
+      "term": "keyboard",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The computer input equipment with keys.",
+      "forms": [
+        "keyboards"
+      ]
+    },
+    {
+      "term": "key",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A data field name in a mapping.",
+      "forms": [
+        "keys"
+      ]
+    },
+    {
+      "term": "label",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "Interface text that identifies a control or data item.",
+      "forms": [
+        "labels"
+      ]
+    },
+    {
+      "term": "layout",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The position and dimensions of interface content.",
+      "forms": [
+        "layouts"
+      ]
+    },
+    {
+      "term": "loading state",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The component condition while software gets data.",
+      "forms": [
+        "loading states"
+      ]
+    },
+    {
+      "term": "mapping",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A set of connections between source and output tokens.",
+      "forms": [
+        "mappings"
+      ]
+    },
+    {
+      "term": "metadata",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "Data that gives information about other data.",
+      "forms": [
+        "metadatas"
+      ]
+    },
+    {
+      "term": "mode",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A set with a name of of interface token overrides.",
+      "forms": [
+        "modes"
+      ]
+    },
+    {
+      "term": "navigation",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "Interface controls that give access to other content.",
+      "forms": [
+        "navigations"
+      ]
+    },
+    {
+      "term": "observation",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A measured interface value with its source conditions.",
+      "forms": [
+        "observations"
+      ]
+    },
+    {
+      "term": "output format",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The file format that receives exported tokens.",
+      "forms": [
+        "output formats"
+      ]
+    },
+    {
+      "term": "path",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The location of a file or data item.",
+      "forms": [
+        "paths"
+      ]
+    },
+    {
+      "term": "plugin",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A set of skills and software resources for an agent.",
+      "forms": [
+        "plugins"
+      ]
+    },
+    {
+      "term": "plugin root",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The first directory in the installed plugin.",
+      "forms": [
+        "plugin roots"
+      ]
+    },
+    {
+      "term": "profile",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The set with a name of of DESIGN.md conditions.",
+      "forms": [
+        "profiles"
+      ]
+    },
+    {
+      "term": "project",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The software repository in the task.",
+      "forms": [
+        "projects"
+      ]
+    },
+    {
+      "term": "radius",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The curve dimension at an interface corner.",
+      "forms": [
+        "radiuses"
+      ]
+    },
+    {
+      "term": "reference",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A connection to a source item or token.",
+      "forms": [
+        "references"
+      ]
+    },
+    {
+      "term": "repository",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A directory with software files and Git data.",
+      "forms": [
+        "repositories"
+      ]
+    },
+    {
+      "term": "resolution",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The operation that gets values through token references.",
+      "forms": [
+        "resolutions"
+      ]
+    },
+    {
+      "term": "responsive behavior",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "Interface changes for different viewport conditions.",
+      "forms": [
+        "responsive behaviors"
+      ]
+    },
+    {
+      "term": "responsive condition",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A viewport or content condition that changes layout.",
+      "forms": [
+        "responsive conditions"
+      ]
+    },
+    {
+      "term": "responsive content",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "Interface content that adapts to viewport conditions.",
+      "forms": [
+        "responsive contents"
+      ]
+    },
+    {
+      "term": "responsive layout",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "Layout with specified behavior for different viewport conditions.",
+      "forms": [
+        "responsive layouts"
+      ]
+    },
+    {
+      "term": "role",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "An interface function with a name for a token.",
+      "forms": [
+        "roles"
+      ]
+    },
+    {
+      "term": "route",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A software location that shows interface content.",
+      "forms": [
+        "routes"
+      ]
+    },
+    {
+      "term": "screenshot",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "An image of an interface at a specified time.",
+      "forms": [
+        "screenshots"
+      ]
+    },
+    {
+      "term": "selected state",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The component condition after user selection.",
+      "forms": [
+        "selected states"
+      ]
+    },
+    {
+      "term": "skill",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A set with a name of of agent instructions for a task.",
+      "forms": [
+        "skills"
+      ]
+    },
+    {
+      "term": "software",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "Computer instructions and their related data.",
+      "forms": [
+        "softwares"
+      ]
+    },
+    {
+      "term": "source code",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The project software instructions.",
+      "forms": [
+        "source codes"
+      ]
+    },
+    {
+      "term": "spacing",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The distance between interface items.",
+      "forms": [
+        "spacings"
+      ]
+    },
+    {
+      "term": "status",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The condition with a name of of data or an interface task.",
+      "forms": [
+        "statuses"
+      ]
+    },
+    {
+      "term": "style",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "CSS data that controls interface appearance.",
+      "forms": [
+        "styles"
+      ]
+    },
+    {
+      "term": "syntax",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The permitted structure of software data.",
+      "forms": [
+        "syntaxs"
+      ]
+    },
+    {
+      "term": "target file",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The file that receives the specified change.",
+      "forms": [
+        "target files"
+      ]
+    },
+    {
+      "term": "target format",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The format that receives exported data.",
+      "forms": [
+        "target formats"
+      ]
+    },
+    {
+      "term": "target path",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The location that receives the specified change.",
+      "forms": [
+        "target paths"
+      ]
+    },
+    {
+      "term": "target tool",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The software that receives exported data.",
+      "forms": [
+        "target tools"
+      ]
+    },
+    {
+      "term": "target viewport",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The viewport condition in the task.",
+      "forms": [
+        "target viewports"
+      ]
+    },
+    {
+      "term": "template",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A file with example syntax and example data.",
+      "forms": [
+        "templates"
+      ]
+    },
+    {
+      "term": "text",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "Words and symbols that an interface shows.",
+      "forms": [
+        "texts"
+      ]
+    },
+    {
+      "term": "theme",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A set with a name of of interface colors and related tokens.",
+      "forms": [
+        "themes"
+      ]
+    },
+    {
+      "term": "token",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A design value with a name.",
+      "forms": [
+        "tokens"
+      ]
+    },
+    {
+      "term": "token export",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "Token data in a target format.",
+      "forms": [
+        "token exports"
+      ]
+    },
+    {
+      "term": "trigger",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "An input or condition that changes interface state.",
+      "forms": [
+        "triggers"
+      ]
+    },
+    {
+      "term": "unresolved item",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A design selection without sufficient source data or a developer decision.",
+      "forms": [
+        "unresolved items"
+      ]
+    },
+    {
+      "term": "user",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The person who operates the interface.",
+      "forms": [
+        "users"
+      ]
+    },
+    {
+      "term": "version",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The number that identifies a software or document release.",
+      "forms": [
+        "versions"
+      ]
+    },
+    {
+      "term": "viewport",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The browser area that shows an interface.",
+      "forms": [
+        "viewports"
+      ]
+    },
+    {
+      "term": "visual identity",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The set of appearance selections that identifies an interface.",
+      "forms": [
+        "visual identities"
+      ]
+    },
+    {
+      "term": "accessibility",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "Interface operation for users with different input equipment and access conditions.",
+      "forms": [
+        "accessibilities"
+      ]
+    },
+    {
+      "term": "accessibility criterion",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "A specified condition from the accessibility standard.",
+      "forms": [
+        "accessibility criterions"
+      ]
+    },
+    {
+      "term": "accessibility target",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "The selected accessibility standard and level.",
+      "forms": [
+        "accessibility targets"
+      ]
+    },
+    {
+      "term": "alpha color",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "A color with a transparency value.",
+      "forms": [
+        "alpha colors"
+      ]
+    },
+    {
+      "term": "audience",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "The user group for the interface.",
+      "forms": [
+        "audiences"
+      ]
+    },
+    {
+      "term": "breakpoint",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "A viewport limit that changes interface layout.",
+      "forms": [
+        "breakpoints"
+      ]
+    },
+    {
+      "term": "color contrast",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "The ratio of luminance between 2 colors.",
+      "forms": [
+        "color contrasts"
+      ]
+    },
+    {
+      "term": "contrast",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "The ratio of luminance between foreground and background.",
+      "forms": [
+        "contrasts"
+      ]
+    },
+    {
+      "term": "density",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "The quantity of content in an interface area.",
+      "forms": [
+        "densities"
+      ]
+    },
+    {
+      "term": "disabled state",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "A component condition that prevents an interface action.",
+      "forms": [
+        "disabled states"
+      ]
+    },
+    {
+      "term": "error state",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "A component condition that shows a task defect.",
+      "forms": [
+        "error states"
+      ]
+    },
+    {
+      "term": "font",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "A set of glyphs for interface text.",
+      "forms": [
+        "fonts"
+      ]
+    },
+    {
+      "term": "font family",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "A font set with a name.",
+      "forms": [
+        "font families"
+      ]
+    },
+    {
+      "term": "fallback family",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "The font family used if the primary font is not available.",
+      "forms": [
+        "fallback families"
+      ]
+    },
+    {
+      "term": "headline",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "The typography role for a heading.",
+      "forms": [
+        "headlines"
+      ]
+    },
+    {
+      "term": "hierarchy",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "The sequence of primary and secondary interface items.",
+      "forms": [
+        "hierarchies"
+      ]
+    },
+    {
+      "term": "hover state",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "The component condition when the pointer is above it.",
+      "forms": [
+        "hover states"
+      ]
+    },
+    {
+      "term": "line height",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "The distance between text baselines.",
+      "forms": [
+        "line heights"
+      ]
+    },
+    {
+      "term": "motion",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "Changes in interface position or appearance with time.",
+      "forms": [
+        "motions"
+      ]
+    },
+    {
+      "term": "nontext contrast",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "The contrast of interface images and control boundaries.",
+      "forms": [
+        "nontext contrasts"
+      ]
+    },
+    {
+      "term": "opaque color",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "A color without transparency.",
+      "forms": [
+        "opaque colors"
+      ]
+    },
+    {
+      "term": "pixel",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "The CSS length unit for a design value.",
+      "forms": [
+        "pixels"
+      ]
+    },
+    {
+      "term": "pressed state",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "The component condition during user input.",
+      "forms": [
+        "pressed states"
+      ]
+    },
+    {
+      "term": "recovery step",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "The procedure step after an interface error.",
+      "forms": [
+        "recovery steps"
+      ]
+    },
+    {
+      "term": "reduced motion",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "The interface condition that decreases motion for a user selection.",
+      "forms": [
+        "reduced motions"
+      ]
+    },
+    {
+      "term": "reflow",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "The change in content layout at a viewport or zoom condition.",
+      "forms": [
+        "reflows"
+      ]
+    },
+    {
+      "term": "status indicator",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "An interface item that shows the status of a task.",
+      "forms": [
+        "status indicators"
+      ]
+    },
+    {
+      "term": "success state",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "A component condition after a completed task.",
+      "forms": [
+        "success states"
+      ]
+    },
+    {
+      "term": "target size",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "The dimensions of a user input area.",
+      "forms": [
+        "target sizes"
+      ]
+    },
+    {
+      "term": "task flow",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "The sequence of interface steps for a task.",
+      "forms": [
+        "task flows"
+      ]
+    },
+    {
+      "term": "typography",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "The design data for interface text.",
+      "forms": [
+        "typographies"
+      ]
+    },
+    {
+      "term": "unitless line height",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "The line-height factor for a font size.",
+      "forms": [
+        "unitless line heights"
+      ]
+    },
+    {
+      "term": "wrapping",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "The movement of long text to a subsequent line.",
+      "forms": [
+        "wrappings"
+      ]
+    },
+    {
+      "term": "agent prompt",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "The text that starts a skill task.",
+      "forms": [
+        "agent prompts"
+      ]
+    },
+    {
+      "term": "authored text",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "The skill instructions made for this project.",
+      "forms": [
+        "authored texts"
+      ]
+    },
+    {
+      "term": "conformance",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "All applicable standard conditions are correct.",
+      "forms": [
+        "conformances"
+      ]
+    },
+    {
+      "term": "description",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "Short text that gives information about a skill or file.",
+      "forms": [
+        "descriptions"
+      ]
+    },
+    {
+      "term": "dictionary",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "The word data for the writing standard.",
+      "forms": [
+        "dictionaries"
+      ]
+    },
+    {
+      "term": "exclusion",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "The design selection that the developer tells you to prevent.",
+      "forms": [
+        "exclusions"
+      ]
+    },
+    {
+      "term": "grammar",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "The conditions for word forms and sentence structure.",
+      "forms": [
+        "grammars"
+      ]
+    },
+    {
+      "term": "language",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "The words and grammar used for instructions.",
+      "forms": [
+        "languages"
+      ]
+    },
+    {
+      "term": "meaning",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "The function of a word in the dictionary.",
+      "forms": [
+        "meanings"
+      ]
+    },
+    {
+      "term": "noun",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "A word that identifies an item in a subject field.",
+      "forms": [
+        "nouns"
+      ]
+    },
+    {
+      "term": "paragraph",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "A group of sentences about one subject.",
+      "forms": [
+        "paragraphs"
+      ]
+    },
+    {
+      "term": "part of speech",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "The grammar type of a word.",
+      "forms": [
+        "parts of speech"
+      ]
+    },
+    {
+      "term": "sentence",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "A group of words with one full sentence function.",
+      "forms": [
+        "sentences"
+      ]
+    },
+    {
+      "term": "specification",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "The document with the applicable format conditions.",
+      "forms": [
+        "specifications"
+      ]
+    },
+    {
+      "term": "standard",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "The document that gives the applicable conditions.",
+      "forms": [
+        "standards"
+      ]
+    },
+    {
+      "term": "technical noun",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "A noun for a specified item in a subject field.",
+      "forms": [
+        "technical nouns"
+      ]
+    },
+    {
+      "term": "technical term",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "A name for a specified item in a subject field.",
+      "forms": [
+        "technical terms"
+      ]
+    },
+    {
+      "term": "technical verb",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "A verb for a specified operation in a subject field.",
+      "forms": [
+        "technical verbs"
+      ]
+    },
+    {
+      "term": "terminology",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "The technical terms for this project.",
+      "forms": [
+        "terminologies"
+      ]
+    },
+    {
+      "term": "verb",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "A word for a step or condition.",
+      "forms": [
+        "verbs"
+      ]
+    },
+    {
+      "term": "word",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "An item of language with a specified meaning.",
+      "forms": [
+        "words"
+      ]
+    },
+    {
+      "term": "word match",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "A connection between a text word and dictionary data.",
+      "forms": [
+        "word matchs"
+      ]
+    },
+    {
+      "term": "export",
+      "partOfSpeech": "verb",
+      "category": "data processing",
+      "meaning": "Write design tokens in a different file format.",
+      "forms": [
+        "exports",
+        "exported"
+      ]
+    },
+    {
+      "term": "lint",
+      "partOfSpeech": "verb",
+      "category": "data processing",
+      "meaning": "Do software checks of document syntax and selected language conditions.",
+      "forms": [
+        "lints",
+        "linted"
+      ]
+    },
+    {
+      "term": "map",
+      "partOfSpeech": "verb",
+      "category": "data processing",
+      "meaning": "Connect source data to output data keys.",
+      "forms": [
+        "maps",
+        "mapped"
+      ]
+    },
+    {
+      "term": "overwrite",
+      "partOfSpeech": "verb",
+      "category": "data processing",
+      "meaning": "Replace the data in a file at the same path.",
+      "forms": [
+        "overwrites",
+        "overwritten"
+      ]
+    },
+    {
+      "term": "resolve",
+      "partOfSpeech": "verb",
+      "category": "data processing",
+      "meaning": "Get the target value through a token reference.",
+      "forms": [
+        "resolves",
+        "resolved"
+      ]
+    },
+    {
+      "term": "scroll",
+      "partOfSpeech": "verb",
+      "category": "data processing",
+      "meaning": "Move viewport content to show a different area.",
+      "forms": [
+        "scrolls",
+        "scrolled"
+      ]
+    },
+    {
+      "term": "zoom",
+      "partOfSpeech": "verb",
+      "category": "data processing",
+      "meaning": "Change interface content dimensions.",
+      "forms": [
+        "zooms",
+        "zoomed"
+      ]
+    },
+    {
+      "term": "behavior",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The response of software to input or conditions.",
+      "forms": [
+        "behaviors"
+      ]
+    },
+    {
+      "term": "state",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The condition with a name of of an interface component.",
+      "forms": [
+        "states"
+      ]
+    },
+    {
+      "term": "target",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The interface item, source, or output in the specified task.",
+      "forms": [
+        "targets"
+      ]
+    },
+    {
+      "term": "term",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "The specified name for a software or interface item.",
+      "forms": [
+        "terms"
+      ]
+    },
+    {
+      "term": "category",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "The subject field for a technical term.",
+      "forms": [
+        "categories"
+      ]
+    },
+    {
+      "term": "list",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A sequence of data items with names.",
+      "forms": [
+        "lists"
+      ]
+    },
+    {
+      "term": "hover",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "The pointer condition above a component.",
+      "forms": [
+        "hovers"
+      ]
+    },
+    {
+      "term": "extraction",
+      "partOfSpeech": "noun",
+      "category": "data processing",
+      "meaning": "The operation that gets design values from source data.",
+      "forms": [
+        "extractions"
+      ]
+    },
+    {
+      "term": "criterion",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "A specified standard condition for an inspection.",
+      "forms": [
+        "criteria"
+      ]
+    },
+    {
+      "term": "loading",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The software state during data transfer.",
+      "forms": [
+        "loadings"
+      ]
+    },
+    {
+      "term": "writing check",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "An inspection of skill language against specified conditions.",
+      "forms": [
+        "writing checks"
+      ]
+    },
+    {
+      "term": "writing standard",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "The document that gives the applicable language conditions.",
+      "forms": [
+        "writing standards"
+      ]
+    },
+    {
+      "term": "uppercase hexadecimal notation",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The specified notation for color data with uppercase letters and hexadecimal numbers.",
+      "forms": [
+        "uppercase hexadecimal notations"
+      ]
+    },
+    {
+      "term": "notation",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The specified symbols for a data value.",
+      "forms": [
+        "notations"
+      ]
+    },
+    {
+      "term": "font size",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "The specified dimension for font glyphs.",
+      "forms": [
+        "font sizes"
+      ]
+    },
+    {
+      "term": "default",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The component state before user input.",
+      "forms": [
+        "defaults"
+      ]
+    },
+    {
+      "term": "pressed",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The component state during user input.",
+      "forms": [
+        "presseds"
+      ]
+    },
+    {
+      "term": "submission",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "Data sent from an interface form.",
+      "forms": [
+        "submissions"
+      ]
+    },
+    {
+      "term": "recovery",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The procedure after an interface error.",
+      "forms": [
+        "recoveries"
+      ]
+    },
+    {
+      "term": "column",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "A vertical group of content in a layout.",
+      "forms": [
+        "columns"
+      ]
+    },
+    {
+      "term": "reading sequence",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "The sequence in which the user reads interface content.",
+      "forms": [
+        "reading sequences"
+      ]
+    },
+    {
+      "term": "scrolling",
+      "partOfSpeech": "noun",
+      "category": "data processing",
+      "meaning": "The movement of content through a viewport.",
+      "forms": [
+        "scrollings"
+      ]
+    },
+    {
+      "term": "responsive instruction",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "An instruction for layout at specified viewport conditions.",
+      "forms": [
+        "responsive instructions"
+      ]
+    },
+    {
+      "term": "descriptive sentence",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "A sentence that gives data about an item.",
+      "forms": [
+        "descriptive sentences"
+      ]
+    },
+    {
+      "term": "plural noun",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "A noun form for more than one item.",
+      "forms": [
+        "plural nouns"
+      ]
+    },
+    {
+      "term": "verb form",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "A permitted form of a verb.",
+      "forms": [
+        "verb forms"
+      ]
+    },
+    {
+      "term": "software resource",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A file or tool supplied with the plugin.",
+      "forms": [
+        "software resources"
+      ]
+    },
+    {
+      "term": "lint warning",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A lint result that makes manual inspection necessary.",
+      "forms": [
+        "lint warnings"
+      ]
+    },
+    {
+      "term": "design intent",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "The audience, task, and interface character in the design brief.",
+      "forms": [
+        "design intents"
+      ]
+    },
+    {
+      "term": "content division",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "A group of related text with a heading.",
+      "forms": [
+        "content divisions"
+      ]
+    },
+    {
+      "term": "unsupported data",
+      "partOfSpeech": "noun",
+      "category": "data processing",
+      "meaning": "Source data without a correct target format mapping.",
+      "forms": [
+        "unsupported datas"
+      ]
+    },
+    {
+      "term": "unsupported value",
+      "partOfSpeech": "noun",
+      "category": "data processing",
+      "meaning": "A source value without a correct target format mapping.",
+      "forms": [
+        "unsupported values"
+      ]
+    },
+    {
+      "term": "status message",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "Interface text that gives the result of a task.",
+      "forms": [
+        "status messages"
+      ]
+    },
+    {
+      "term": "directory",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A location with a name that contains files and other directories.",
+      "forms": [
+        "directories"
+      ]
+    },
+    {
+      "term": "appearance",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "Design data for colors, typography, shapes, and spacing.",
+      "forms": [
+        "appearances"
+      ]
+    },
+    {
+      "term": "data field",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A data item in a mapping.",
+      "forms": [
+        "data fields"
+      ]
+    },
+    {
+      "term": "subject field",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "A group of related software, interface, or language items.",
+      "forms": [
+        "subject fields"
+      ]
+    },
+    {
+      "term": "computer",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The equipment that operates software.",
+      "forms": [
+        "computers"
+      ]
+    },
+    {
+      "term": "form",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "An interface group for user input.",
+      "forms": [
+        "forms"
+      ]
+    },
+    {
+      "term": "browser",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The software that shows an interface.",
+      "forms": [
+        "browsers"
+      ]
+    },
+    {
+      "term": "response",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The data or interface result after input.",
+      "forms": [
+        "responses"
+      ]
+    },
+    {
+      "term": "transparency",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "The condition of a color that shows the background.",
+      "forms": [
+        "transparencies"
+      ]
+    },
+    {
+      "term": "ratio",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "The result when you divide one luminance value by a different luminance value.",
+      "forms": [
+        "ratios"
+      ]
+    },
+    {
+      "term": "luminance",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "The measured light value for a color.",
+      "forms": [
+        "luminances"
+      ]
+    },
+    {
+      "term": "glyph",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "A specified image for a font character.",
+      "forms": [
+        "glyphs"
+      ]
+    },
+    {
+      "term": "pointer",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The interface position from pointer input equipment.",
+      "forms": [
+        "pointers"
+      ]
+    },
+    {
+      "term": "text line",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "A horizontal group of text glyphs.",
+      "forms": [
+        "text lines"
+      ]
+    },
+    {
+      "term": "Markdown",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The specified text format for the design body.",
+      "forms": [
+        "Markdowns"
+      ]
+    },
+    {
+      "term": "front matter",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The YAML data before the design body.",
+      "forms": [
+        "front matters"
+      ]
+    },
+    {
+      "term": "storage",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The location that keeps computer data.",
+      "forms": [
+        "storages"
+      ]
+    },
+    {
+      "term": "Git",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The software that records file changes in a repository.",
+      "forms": [
+        "Gits"
+      ]
+    },
+    {
+      "term": "baseline",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "The typography reference position for a text line.",
+      "forms": [
+        "baselines"
+      ]
+    },
+    {
+      "term": "control boundary",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "The line around a user input control.",
+      "forms": [
+        "control boundaries"
+      ]
+    },
+    {
+      "term": "multiplier",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The factor that changes a number.",
+      "forms": [
+        "multipliers"
+      ]
+    },
+    {
+      "term": "sentence function",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "The instruction or data that a sentence gives.",
+      "forms": [
+        "sentence functions"
+      ]
+    },
+    {
+      "term": "data transfer",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The movement of data between software locations.",
+      "forms": [
+        "data transfers"
+      ]
+    },
+    {
+      "term": "uppercase letter",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A letter in the uppercase character set.",
+      "forms": [
+        "uppercase letters"
+      ]
+    },
+    {
+      "term": "hexadecimal number",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A number in the base 16 notation.",
+      "forms": [
+        "hexadecimal numbers"
+      ]
+    },
+    {
+      "term": "character",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A text item in a font or data value.",
+      "forms": [
+        "characters"
+      ]
+    },
+    {
+      "term": "interface character",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "The appearance selections for an interface.",
+      "forms": [
+        "interface characters"
+      ]
+    },
+    {
+      "term": "line",
+      "partOfSpeech": "noun",
+      "category": "interface design",
+      "meaning": "The reference position for interface text or a control boundary.",
+      "forms": [
+        "lines"
+      ]
+    },
+    {
+      "term": "factor",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The number that changes a data value.",
+      "forms": [
+        "factors"
+      ]
+    },
+    {
+      "term": "subject",
+      "partOfSpeech": "noun",
+      "category": "language and documents",
+      "meaning": "The item that the text gives information about.",
+      "forms": [
+        "subjects"
+      ]
+    },
+    {
+      "term": "letter",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A character in a text value.",
+      "forms": [
+        "letters"
+      ]
+    },
+    {
+      "term": "uppercase character set",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The character set for uppercase letters.",
+      "forms": [
+        "uppercase character sets"
+      ]
+    },
+    {
+      "term": "base",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "The number of different characters in number notation.",
+      "forms": [
+        "bases"
+      ]
+    }
+  ]
+}

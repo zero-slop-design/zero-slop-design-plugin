@@ -1,0 +1,4 @@
+interface:
+  display_name: "Interaction state data"
+  short_description: "Set component states in DESIGN.md."
+  default_prompt: "Use $define-interaction-states to set the applicable states for each component family."
