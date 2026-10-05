@@ -8,7 +8,7 @@ import { exportTokens } from './export.mjs';
 import { languageReport } from './language.mjs';
 import { checkCode, knownDefects } from './check.mjs';
 
-const help = `zero-slop-design 0.2.0 — DESIGN.md tools
+const help = `zero-slop-design 0.2.1 — DESIGN.md tools
 
   zsd lint FILE [--json] [--strict]
   zsd init FILE [--force]

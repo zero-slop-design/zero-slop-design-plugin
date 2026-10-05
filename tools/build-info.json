@@ -1,16 +1,16 @@
 {
-  "version": "0.2.0",
+  "version": "0.2.1",
   "inputs": {
-    "package-lock.json": "67a7a50a890552f89ad70689ab62579e308957923d33a4a94cf839002c178e56",
-    "package.json": "39083530ef0534a73044728a2909b1f6354f6a1cb6435ab9572982686f8ff18f",
+    "package-lock.json": "38b21ccd1181339b8c5bd33fec7bf46c6d23f08e78afde34e30c6e666c2ed5e6",
+    "package.json": "9491b2dffbff6d5bc4e4367eefee4b5c7b1fb6c716073938443ae6b6e0e43582",
     "packages/zsd-lint/src/index.mjs": "de9e1b6dd41c165c90fea17a90c5959e699795bdc871637c055a96e115d4d440",
     "scripts/build.mjs": "3a34414c8e4c40108fa1e2ec2d198ad3d646f0c6e2c49f16fd870ed81dd3d16a",
-    "src/check.mjs": "5414947327c102b1b93153e407817b0a323b9f2aa4129ce39fc86ef2421fb741",
-    "src/cli.mjs": "90f55831033fc4c61158fee539672d616705bbf5333375ea645eefdb9ef6780f",
+    "src/check.mjs": "ccba61324df1c6f64fedfe08396b7480d4bcbd0d3dcea838f78cbd615840ad0e",
+    "src/cli.mjs": "d11f27ed50a2800016cc00fd474268233fede3a4baa3d1437c549b336e390cab",
     "src/design.mjs": "c71b2c7ef4cae9c868fafde4810593d505892a3e4460d564860a14b56f3ef6ff",
     "src/export.mjs": "c744a700392f8204142f2e2922814af64fe7b1aa6b34416769cf7cc8c2ddb04f",
     "src/language.mjs": "36d74056015483173fe8539e7618d07824bf779f7cfce440c58216b4eda3387e"
   },
-  "runtime": "6ff6fa4b3f3e0b3c3fc6aab0f8eefa603a87e55dccf5937f1a018aec8a50931b",
+  "runtime": "d4082d0bf1d6158cfabae5912eb03c9101554061770354fdb25e3a7c6143546c",
   "validatorData": "6244e829849e63b55316258f32e1110833d193b79943ec79f245b33ebeec2ef8"
 }

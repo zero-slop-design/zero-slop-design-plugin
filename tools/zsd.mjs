@@ -29726,7 +29726,7 @@ var PALETTE_CLASS = new RegExp(`(?<![\\w-])(?:[a-z]+:)*(?:bg|text|border(?:-[trb
 var HEX = /(?<![\w&])#(?:[0-9a-fA-F]{8}|[0-9a-fA-F]{6}|[0-9a-fA-F]{3,4})(?![0-9a-zA-Z_-])/g;
 var COLOR_FUNCTION = /\b(?:rgba?|hsla?|hwb|lab|lch|oklab|oklch|color)\(\s*[^)]*\)/g;
 var CSS_DIMENSION = /\b(margin(?:-[a-z]+)?|padding(?:-[a-z]+)?|gap|row-gap|column-gap|border(?:-[a-z]+)*-radius|font-size|letter-spacing)\s*:\s*([^;{}\n]+)/g;
-var UTILITY_DIMENSION = /(?<![\w-])(?:[a-z]+:)*(p[xytrbl]?|m[xytrbl]?|gap(?:-[xy])?|space-[xy]|rounded(?:-[a-z]+)?|text|tracking)-\[(-?\d*\.?\d+)(px|rem)\]/g;
+var UTILITY_DIMENSION = /(?<![\w-])(?:[a-z]+:)*(p[xytrbl]?|m[xytrbl]?|gap(?:-[xy])?|space-[xy]|rounded(?:-[a-z]+)?|text|tracking)-\[([^\]\s]+)\]/g;
 var FONT_DECLARATION = /font-family\s*:\s*([^;{}\n]+)/g;
 var NEXT_FONT = /import\s*\{([^}]+)\}\s*from\s*['"]next\/font\/google['"]/g;
 var GOOGLE_FONT_URL = /fonts\.googleapis\.com\/css2?\?family=([A-Za-z0-9+]+)/g;
@@ -29735,7 +29735,7 @@ var AVOID = [
   { rule: "avoid-gradient", words: /gradient/i, pattern: /\b(?:repeating-)?(?:linear|radial|conic)-gradient\(|(?<![\w-])(?:[a-z]+:)*bg-(?:gradient-to|linear|radial|conic)-[\w-]+/g },
   { rule: "avoid-blur", words: /glass|blur|translucent/i, pattern: /backdrop-filter\s*:|(?<![\w-])(?:[a-z]+:)*backdrop-blur(?:-[\w]+)?(?![\w-])/g },
   { rule: "avoid-emoji", words: /emoji/i, pattern: new RegExp("(?![\\u00A9\\u00AE\\u2122\\u203C\\u2049])\\p{Extended_Pictographic}", "gu"), markupOnly: true },
-  { rule: "avoid-shadow", words: /shadow/i, pattern: /box-shadow\s*:\s*(?!none\b)|(?<![\w-])(?:[a-z]+:)*shadow-(?:xs|sm|md|lg|xl|2xl|inner)(?![\w-])/g }
+  { rule: "avoid-shadow", words: /shadow/i, pattern: /box-shadow\s*:(?!\s*none\b)|(?<![\w-])(?:[a-z]+:)*shadow-(?:xs|sm|md|lg|xl|2xl|inner)(?![\w-])/g }
 ];
 var upperHex = (value2) => {
   let hex = value2.slice(1).toUpperCase();
@@ -29836,7 +29836,12 @@ function checkText(content3, file, rules) {
     }
     for (const m of line.matchAll(UTILITY_DIMENSION)) {
       const kind = kindOf(m[1]);
-      if (!rules.dimensions[kind].has(Math.abs(px(m[2], m[3])))) add("dimension-value", index2, m.index, m[0], `not a ${kind} token value`);
+      for (const d of m[2].matchAll(/(-?\d*\.?\d+)(px|rem)\b/g)) {
+        if (!rules.dimensions[kind].has(Math.abs(px(d[1], d[2])))) {
+          add("dimension-value", index2, m.index, m[0], `not a ${kind} token value`);
+          break;
+        }
+      }
     }
     for (const m of line.matchAll(FONT_DECLARATION)) {
       for (const raw of m[1].split(",")) {
@@ -29915,7 +29920,7 @@ function knownDefects(report, design) {
 }
 
 // src/cli.mjs
-var help = `zero-slop-design 0.2.0 \u2014 DESIGN.md tools
+var help = `zero-slop-design 0.2.1 \u2014 DESIGN.md tools
 
   zsd lint FILE [--json] [--strict]
   zsd init FILE [--force]
