@@ -2,7 +2,7 @@
 
 A plugin marketplace for developers who want coding agents to keep their design selections.
 
-The first plugin contains **13 skills**, a `DESIGN.md` profile, a starter template, and local tools. Skill instructions use **ASD-STE100 Issue 9** vocabulary, grammar practices, and documented technical terms. The project does not impose a visual style.
+The first plugin contains **14 skills**, a `DESIGN.md` profile, a starter template, and local tools. Skill instructions use **ASD-STE100 Issue 9** vocabulary, grammar practices, and documented technical terms. The project does not impose a visual style.
 
 ## Install
 
@@ -45,8 +45,9 @@ The plugin uses the [Agent Skills folder format](https://agentskills.io/specific
 | `define-interaction-states` | Set component states, keyboard behavior, recovery, and motion. |
 | `review-accessibility` | Inspect the stated document or interface area against accessibility criteria. |
 | `export-design-tokens` | Export design tokens as CSS, DTCG JSON, or Tailwind theme data. |
+| `enforce-design` | Add design code checks to a project and its continuous integration. |
 
-Start with `define-design`, then `create-design-md`. Use `extract-design` when an interface already exists. Review the file before implementation and review drift after authorized interface checks.
+Start with `define-design`, then `create-design-md`. Use `extract-design` when an interface already exists. Review the file before implementation and review drift after authorized interface checks. Use `enforce-design` to keep new source code inside the recorded design values.
 
 The template is an example. The skills keep developer selections, mark proposals and missing data, and reuse project components and assets. Interface copy follows the developer's voice. Skill instructions use STE.
 
@@ -63,13 +64,16 @@ node tools/zsd.mjs export /path/to/project/DESIGN.md --format css --out /path/to
 node tools/zsd.mjs export /path/to/project/DESIGN.md --format dtcg --out /path/to/tokens.json
 node tools/zsd.mjs export /path/to/project/DESIGN.md --format tailwind --out /path/to/theme.css
 node tools/zsd.mjs language skills/define-design/SKILL.md --json
+node tools/zsd.mjs check-code /path/to/project/DESIGN.md --config /path/to/project/design-check.config.json
 ```
 
 `init` and `export` refuse to overwrite files unless `--force` is supplied. Export cannot replace its source design file. Export requires a clean document, resolves references, and reports every unsupported value. Unsupported exports produce no token output. Use `--report PATH` to write the mapping report and `--mode NAME` to select a defined color mode.
 
 The DTCG output targets **2025.10**. Its typography composites require an explicit `letterSpacing`; font fallback lists become arrays. Tailwind output targets **v4**, includes CSS variables, and adds an `@theme inline` mapping. It leaves the project theme defaults in place. Raw CSS shadows have no DTCG mapping; their export fails with the source path instead of inventing a conversion.
 
-`diff` compares YAML data. `drift` compares only supplied measured observations; neither proves interface quality. Read the [observation contract](references/observations.md). Exit codes are `0` for success, `1` for findings or unsupported export, and `2` for invalid input or an operation error.
+`diff` compares YAML data. `drift` compares only supplied measured observations; neither proves interface quality. Read the [observation contract](references/observations.md).
+
+`check-code` compares source code with the resolved values in DESIGN.md. It reports color values, color functions, utility palette classes, dimensions, and font families that the design file does not permit, plus `must-avoid` patterns such as gradients, background blur, emoji, and shadows. Exception comments need a cause. A known defect list lets an existing project block only new findings. The command reads DESIGN.md on each run, so continuous integration follows design changes. It does not examine layout, computed contrast, component states, or visual quality. Read [code checks](references/code-checks.md). Exit codes are `0` for success, `1` for findings or unsupported export, and `2` for invalid input or an operation error.
 
 ## Standard and language
 

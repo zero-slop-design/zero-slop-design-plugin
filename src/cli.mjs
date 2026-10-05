@@ -1,13 +1,14 @@
 #!/usr/bin/env node
 import { readFile, writeFile, mkdir, stat, realpath } from 'node:fs/promises';
-import { dirname, resolve } from 'node:path';
+import { dirname, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { lintZsd } from '../packages/zsd-lint/src/index.mjs';
 import { parseDesign, diffDesign, compareObservations } from './design.mjs';
 import { exportTokens } from './export.mjs';
 import { languageReport } from './language.mjs';
+import { checkCode, knownDefects } from './check.mjs';
 
-const help = `zero-slop-design 0.1.0 — DESIGN.md tools
+const help = `zero-slop-design 0.2.0 — DESIGN.md tools
 
   zsd lint FILE [--json] [--strict]
   zsd init FILE [--force]
@@ -15,6 +16,7 @@ const help = `zero-slop-design 0.1.0 — DESIGN.md tools
   zsd drift FILE OBSERVATIONS.json [--json]
   zsd export FILE --format css|dtcg|tailwind [--mode NAME] [--out FILE] [--report FILE] [--force]
   zsd language FILE [--json]
+  zsd check-code FILE [--config FILE] [--known FILE] [--update-known] [--json] [--strict]
   zsd help
 
 Use: node /absolute/plugin/path/tools/zsd.mjs COMMAND
@@ -22,11 +24,13 @@ Exit codes: 0 success; 1 findings or unsupported export; 2 input or operation er
 Export writes stdout unless --out is supplied. Diagnostics use stderr.
 Files are not overwritten unless --force is supplied.
 Language checks cover selected writing conditions, not full STE conformance.
+Code checks find literal values and prohibited patterns only. They do not examine layout,
+computed contrast, component states, or visual quality.
 `;
 function argumentsFor(args) {
   const paths = [], options = {};
-  const flags = new Set(['json','strict','force']);
-  const valued = new Set(['format','mode','out','report']);
+  const flags = new Set(['json','strict','force','update-known']);
+  const valued = new Set(['format','mode','out','report','config','known']);
   for (let i=0;i<args.length;i++) {
     if (!args[i].startsWith('--')) { paths.push(args[i]); continue; }
     const key = args[i].slice(2);
@@ -58,11 +62,45 @@ function print(report, asJSON) {
     if (report.coverage) process.stdout.write(`Coverage: ${report.coverage}\n`);
   } else process.stdout.write(json(report));
 }
+function printCheck(report) {
+  for (const f of report.findings) {
+    if (f.known) continue;
+    process.stdout.write(`${f.file}:${f.line}:${f.column} ${f.severity} ${f.rule} ${JSON.stringify(f.text)}: ${f.message}\n`);
+  }
+  process.stdout.write(`check-code: ${report.files} files, ${report.errors} errors, ${report.warnings} warnings, ${report.known} known\n`);
+  for (const item of report.fixedKnown) process.stdout.write(`note: known defect no longer found: ${item.key}\n`);
+  process.stdout.write(`Not checked: ${report.coverage.notChecked.join('; ')}\n`);
+}
+async function codeCheck(designPath, content, options) {
+  const {tokens} = parseDesign(content);
+  const designDir = dirname(resolve(designPath));
+  let config = {}, root = designDir;
+  if (options.config) {
+    config = JSON.parse(await read(options.config));
+    root = resolve(dirname(resolve(options.config)), config.root ?? '.');
+  }
+  const knownPath = options.known ?? config.known;
+  const knownFile = knownPath ? resolve(options.known ? '.' : dirname(resolve(options.config)), knownPath) : null;
+  let known = null;
+  if (knownFile && !options['update-known']) {
+    try { known = JSON.parse(await readFile(knownFile,'utf8')); }
+    catch (error) { if (error.code !== 'ENOENT') throw error; }
+  }
+  const report = await checkCode(tokens,{root,config,known});
+  if (options['update-known']) {
+    if (!knownFile) throw new Error('Supply --known FILE or a known path in the configuration.');
+    await output(knownFile,json(knownDefects(report,relative(dirname(knownFile),resolve(designPath)))),true);
+    process.stdout.write(`Known defect list written: ${knownFile} (${report.findings.length} defects)\n`);
+    return 0;
+  }
+  if (options.json) process.stdout.write(json(report)); else printCheck(report);
+  return report.errors || (options.strict && report.warnings) ? 1 : 0;
+}
 export async function main(args = process.argv.slice(2)) {
   const command = args.shift() ?? 'help';
   if (command === 'help' || command === '--help' || command === '-h') { process.stdout.write(help); return 0; }
   const {paths,options} = argumentsFor(args);
-  const specs = {lint:{count:1,flags:['json','strict']},init:{count:1,flags:['force']},diff:{count:2,flags:['json']},drift:{count:2,flags:['json']},export:{count:1,flags:['format','mode','out','report','force']},language:{count:1,flags:['json']}};
+  const specs = {lint:{count:1,flags:['json','strict']},init:{count:1,flags:['force']},diff:{count:2,flags:['json']},drift:{count:2,flags:['json']},export:{count:1,flags:['format','mode','out','report','force']},language:{count:1,flags:['json']},'check-code':{count:1,flags:['json','strict','config','known','update-known']}};
   if (!Object.hasOwn(specs,command)) throw new Error(`Unknown command: ${command}.`);
   if (paths.length !== specs[command].count) throw new Error(`${command} needs ${specs[command].count} file path(s).`);
   for (const key of Object.keys(options)) if (!specs[command].flags.includes(key)) throw new Error(`Option --${key} is not available for ${command}.`);
@@ -75,6 +113,7 @@ export async function main(args = process.argv.slice(2)) {
   }
   const content = await read(paths[0]);
   if (command === 'lint') { const report = lintZsd(content); print(report,options.json); return report.summary.errors || (options.strict && report.summary.warnings) ? 1 : 0; }
+  if (command === 'check-code') return codeCheck(paths[0], content, options);
   if (command === 'language') { const report = languageReport(content,paths[0]); print(report,options.json); return report.errors ? 1 : 0; }
   const {tokens} = parseDesign(content);
   if (command === 'diff') { const {tokens:after} = parseDesign(await read(paths[1])); print({coverage:'YAML data only; body changes require inspection',changes:diffDesign(tokens,after)},options.json); return 0; }

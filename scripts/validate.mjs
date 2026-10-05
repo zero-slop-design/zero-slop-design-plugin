@@ -36,7 +36,7 @@ for(const entry of codex.plugins??[]) {
 for(const entry of claude.plugins??[]) {if(entry.name!=='zero-slop-design')fail('Invalid Claude marketplace entry.');await localPath(entry.source??'MISSING');}
 if(codex.plugins?.length!==1||claude.plugins?.length!==1)fail('Each marketplace must contain the plugin.');
 const catalog=await data('catalog.json');
-if(catalog.version!==pkg.version||catalog.skills.length!==13)fail('Invalid catalogue version or skill count.');
+if(catalog.version!==pkg.version||catalog.skills.length!==14)fail('Invalid catalogue version or skill count.');
 const folders=(await readdir(resolve(root,'skills'),{withFileTypes:true})).filter((e)=>e.isDirectory()).map((e)=>e.name).sort();
 if(JSON.stringify(folders)!==JSON.stringify(catalog.skills.map((s)=>s.name).sort()))fail('Catalogue and skill folders differ.');
 for(const skill of catalog.skills) {

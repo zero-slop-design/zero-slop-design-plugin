@@ -101,7 +101,7 @@ The starter uses these optional keys in `x-zsd`:
 | `review` | `status`: `draft` or `reviewed`. Optional `reviewer`, `reviewed-on`, and `scope` record an actual review. |
 | `intent` | Audience, primary task, desired character, density, theme, and references. |
 | `preferences` | `must-use`, `must-avoid`, and `preserve` lists. State concrete design choices. |
-| `implementation` | Canonical token source, component sources, style sources, font assets, and image assets. Use real project paths. |
+| `implementation` | Canonical token source, component sources, style sources, font assets, image assets, and `checks` (the design code check configuration path). Use real project paths. |
 | `unresolved` | Choices that need project context. Never present a proposed value as a confirmed preference. |
 | `layout` | Named layout limits that the prose uses. |
 | `accessibility` | Named target and focus values. These are design instructions, not a conformance certificate. |

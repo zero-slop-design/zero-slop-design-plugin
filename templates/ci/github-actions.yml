@@ -1,0 +1,22 @@
+# Example continuous integration step for zero-slop-design code checks.
+# Put this file at .github/workflows/design-check.yml in the project repository.
+# It uses the tool copy in tools/zero-slop-design/. The project needs no npm package for it.
+name: Design check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  design:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Lint DESIGN.md
+        run: node tools/zero-slop-design/zsd.mjs lint DESIGN.md --strict
+      - name: Check source code against DESIGN.md
+        run: node tools/zero-slop-design/zsd.mjs check-code DESIGN.md --config design-check.config.json

@@ -1,6 +1,6 @@
 {
   "name": "@zero-slop-design/plugin",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "description": "Design skills and DESIGN.md tools for coding agents.",
   "type": "module",

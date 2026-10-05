@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design code checks"
+  short_description: "Stop source code that does not follow DESIGN.md."
+  default_prompt: "Use $enforce-design to add design code checks to this project and its continuous integration."

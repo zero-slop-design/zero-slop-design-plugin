@@ -3999,10 +3999,10 @@ var require_resolve_block_map2 = __commonJS({
       let offset = bm.offset;
       let commentEnd = null;
       for (const collItem of bm.items) {
-        const { start, key, sep, value: value2 } = collItem;
+        const { start, key, sep: sep2, value: value2 } = collItem;
         const keyProps = resolveProps.resolveProps(start, {
           indicator: "explicit-key-ind",
-          next: key ?? sep?.[0],
+          next: key ?? sep2?.[0],
           offset,
           onError,
           parentIndent: bm.indent,
@@ -4016,7 +4016,7 @@ var require_resolve_block_map2 = __commonJS({
             else if ("indent" in key && key.indent !== bm.indent)
               onError(offset, "BAD_INDENT", startColMsg);
           }
-          if (!keyProps.anchor && !keyProps.tag && !sep) {
+          if (!keyProps.anchor && !keyProps.tag && !sep2) {
             commentEnd = keyProps.end;
             if (keyProps.comment) {
               if (map.comment)
@@ -4040,7 +4040,7 @@ var require_resolve_block_map2 = __commonJS({
         ctx.atKey = false;
         if (utilMapIncludes.mapIncludes(ctx, map.items, keyNode))
           onError(keyStart, "DUPLICATE_KEY", "Map keys must be unique");
-        const valueProps = resolveProps.resolveProps(sep ?? [], {
+        const valueProps = resolveProps.resolveProps(sep2 ?? [], {
           indicator: "map-value-ind",
           next: value2,
           offset: keyNode.range[2],
@@ -4056,7 +4056,7 @@ var require_resolve_block_map2 = __commonJS({
             if (ctx.options.strict && keyProps.start < valueProps.found.offset - 1024)
               onError(keyNode.range, "KEY_OVER_1024_CHARS", "The : indicator must be at most 1024 chars after the start of an implicit block mapping key");
           }
-          const valueNode = value2 ? composeNode(ctx, value2, valueProps, onError) : composeEmptyNode(ctx, offset, sep, null, valueProps, onError);
+          const valueNode = value2 ? composeNode(ctx, value2, valueProps, onError) : composeEmptyNode(ctx, offset, sep2, null, valueProps, onError);
           if (ctx.schema.compat)
             utilFlowIndentCheck.flowIndentCheck(bm.indent, value2, onError);
           offset = valueNode.range[2];
@@ -4147,7 +4147,7 @@ var require_resolve_end2 = __commonJS({
       let comment = "";
       if (end) {
         let hasSpace = false;
-        let sep = "";
+        let sep2 = "";
         for (const token of end) {
           const { source, type } = token;
           switch (type) {
@@ -4161,13 +4161,13 @@ var require_resolve_end2 = __commonJS({
               if (!comment)
                 comment = cb;
               else
-                comment += sep + cb;
-              sep = "";
+                comment += sep2 + cb;
+              sep2 = "";
               break;
             }
             case "newline":
               if (comment)
-                sep += source;
+                sep2 += source;
               hasSpace = true;
               break;
             default:
@@ -4210,18 +4210,18 @@ var require_resolve_flow_collection2 = __commonJS({
       let offset = fc.offset + fc.start.source.length;
       for (let i = 0; i < fc.items.length; ++i) {
         const collItem = fc.items[i];
-        const { start, key, sep, value: value2 } = collItem;
+        const { start, key, sep: sep2, value: value2 } = collItem;
         const props = resolveProps.resolveProps(start, {
           flow: fcName,
           indicator: "explicit-key-ind",
-          next: key ?? sep?.[0],
+          next: key ?? sep2?.[0],
           offset,
           onError,
           parentIndent: fc.indent,
           startOnNewline: false
         });
         if (!props.found) {
-          if (!props.anchor && !props.tag && !sep && !value2) {
+          if (!props.anchor && !props.tag && !sep2 && !value2) {
             if (i === 0 && props.comma)
               onError(props.comma, "UNEXPECTED_TOKEN", `Unexpected , in ${fcName}`);
             else if (i < fc.items.length - 1)
@@ -4275,8 +4275,8 @@ var require_resolve_flow_collection2 = __commonJS({
             }
           }
         }
-        if (!isMap && !sep && !props.found) {
-          const valueNode = value2 ? composeNode(ctx, value2, props, onError) : composeEmptyNode(ctx, props.end, sep, null, props, onError);
+        if (!isMap && !sep2 && !props.found) {
+          const valueNode = value2 ? composeNode(ctx, value2, props, onError) : composeEmptyNode(ctx, props.end, sep2, null, props, onError);
           coll.items.push(valueNode);
           offset = valueNode.range[2];
           if (isBlock(value2))
@@ -4288,7 +4288,7 @@ var require_resolve_flow_collection2 = __commonJS({
           if (isBlock(key))
             onError(keyNode.range, "BLOCK_IN_FLOW", blockMsg);
           ctx.atKey = false;
-          const valueProps = resolveProps.resolveProps(sep ?? [], {
+          const valueProps = resolveProps.resolveProps(sep2 ?? [], {
             flow: fcName,
             indicator: "map-value-ind",
             next: value2,
@@ -4299,8 +4299,8 @@ var require_resolve_flow_collection2 = __commonJS({
           });
           if (valueProps.found) {
             if (!isMap && !props.found && ctx.options.strict) {
-              if (sep)
-                for (const st of sep) {
+              if (sep2)
+                for (const st of sep2) {
                   if (st === valueProps.found)
                     break;
                   if (st.type === "newline") {
@@ -4317,7 +4317,7 @@ var require_resolve_flow_collection2 = __commonJS({
             else
               onError(valueProps.start, "MISSING_CHAR", `Missing , or : between ${fcName} items`);
           }
-          const valueNode = value2 ? composeNode(ctx, value2, valueProps, onError) : valueProps.found ? composeEmptyNode(ctx, valueProps.end, sep, null, valueProps, onError) : null;
+          const valueNode = value2 ? composeNode(ctx, value2, valueProps, onError) : valueProps.found ? composeEmptyNode(ctx, valueProps.end, sep2, null, valueProps, onError) : null;
           if (valueNode) {
             if (isBlock(value2))
               onError(valueNode.range, "BLOCK_IN_FLOW", blockMsg);
@@ -4497,7 +4497,7 @@ var require_resolve_block_scalar2 = __commonJS({
           chompStart = i + 1;
       }
       let value2 = "";
-      let sep = "";
+      let sep2 = "";
       let prevMoreIndented = false;
       for (let i = 0; i < contentStart; ++i)
         value2 += lines[i][0].slice(trimIndent) + "\n";
@@ -4514,24 +4514,24 @@ var require_resolve_block_scalar2 = __commonJS({
           indent = "";
         }
         if (type === Scalar.Scalar.BLOCK_LITERAL) {
-          value2 += sep + indent.slice(trimIndent) + content3;
-          sep = "\n";
+          value2 += sep2 + indent.slice(trimIndent) + content3;
+          sep2 = "\n";
         } else if (indent.length > trimIndent || content3[0] === "	") {
-          if (sep === " ")
-            sep = "\n";
-          else if (!prevMoreIndented && sep === "\n")
-            sep = "\n\n";
-          value2 += sep + indent.slice(trimIndent) + content3;
-          sep = "\n";
+          if (sep2 === " ")
+            sep2 = "\n";
+          else if (!prevMoreIndented && sep2 === "\n")
+            sep2 = "\n\n";
+          value2 += sep2 + indent.slice(trimIndent) + content3;
+          sep2 = "\n";
           prevMoreIndented = true;
         } else if (content3 === "") {
-          if (sep === "\n")
+          if (sep2 === "\n")
             value2 += "\n";
           else
-            sep = "\n";
+            sep2 = "\n";
         } else {
-          value2 += sep + content3;
-          sep = " ";
+          value2 += sep2 + content3;
+          sep2 = " ";
           prevMoreIndented = false;
         }
       }
@@ -4714,25 +4714,25 @@ var require_resolve_flow_scalar2 = __commonJS({
         trimBoth = /^[ \t]+|[ \t]+$/g;
       }
       let res = match[1].replace(trimEnd, "");
-      let sep = " ";
+      let sep2 = " ";
       let pos = line.lastIndex;
       while (match = line.exec(source)) {
         const lm = match[1].replace(trimBoth, "");
         if (lm === "") {
-          if (sep === "\n")
-            res += sep;
+          if (sep2 === "\n")
+            res += sep2;
           else
-            sep = "\n";
+            sep2 = "\n";
         } else {
-          res += sep + lm;
-          sep = " ";
+          res += sep2 + lm;
+          sep2 = " ";
         }
         pos = line.lastIndex;
       }
       const last = /[ \t]*(.*)/sy;
       last.lastIndex = pos;
       match = last.exec(source);
-      return res + sep + (match?.[1] ?? "");
+      return res + sep2 + (match?.[1] ?? "");
     }
     function doubleQuotedValue(source, onError) {
       let res = "";
@@ -5542,14 +5542,14 @@ var require_cst_stringify2 = __commonJS({
         }
       }
     }
-    function stringifyItem({ start, key, sep, value: value2 }) {
+    function stringifyItem({ start, key, sep: sep2, value: value2 }) {
       let res = "";
       for (const st of start)
         res += st.source;
       if (key)
         res += stringifyToken(key);
-      if (sep)
-        for (const st of sep)
+      if (sep2)
+        for (const st of sep2)
           res += st.source;
       if (value2)
         res += stringifyToken(value2);
@@ -6716,18 +6716,18 @@ var require_parser2 = __commonJS({
         if (this.type === "map-value-ind") {
           const prev = getPrevProps(this.peek(2));
           const start = getFirstKeyStartProps(prev);
-          let sep;
+          let sep2;
           if (scalar.end) {
-            sep = scalar.end;
-            sep.push(this.sourceToken);
+            sep2 = scalar.end;
+            sep2.push(this.sourceToken);
             delete scalar.end;
           } else
-            sep = [this.sourceToken];
+            sep2 = [this.sourceToken];
           const map = {
             type: "block-map",
             offset: scalar.offset,
             indent: scalar.indent,
-            items: [{ start, key: scalar, sep }]
+            items: [{ start, key: scalar, sep: sep2 }]
           };
           this.onKeyLine = true;
           this.stack[this.stack.length - 1] = map;
@@ -6880,15 +6880,15 @@ var require_parser2 = __commonJS({
                 } else if (isFlowToken(it.key) && !includesToken(it.sep, "newline")) {
                   const start2 = getFirstKeyStartProps(it.start);
                   const key = it.key;
-                  const sep = it.sep;
-                  sep.push(this.sourceToken);
+                  const sep2 = it.sep;
+                  sep2.push(this.sourceToken);
                   delete it.key;
                   delete it.sep;
                   this.stack.push({
                     type: "block-map",
                     offset: this.offset,
                     indent: this.indent,
-                    items: [{ start: start2, key, sep }]
+                    items: [{ start: start2, key, sep: sep2 }]
                   });
                 } else if (start.length > 0) {
                   it.sep = it.sep.concat(start, this.sourceToken);
@@ -7082,13 +7082,13 @@ var require_parser2 = __commonJS({
             const prev = getPrevProps(parent);
             const start = getFirstKeyStartProps(prev);
             fixFlowSeqItems(fc);
-            const sep = fc.end.splice(1, fc.end.length);
-            sep.push(this.sourceToken);
+            const sep2 = fc.end.splice(1, fc.end.length);
+            sep2.push(this.sourceToken);
             const map = {
               type: "block-map",
               offset: fc.offset,
               indent: fc.indent,
-              items: [{ start, key: fc, sep }]
+              items: [{ start, key: fc, sep: sep2 }]
             };
             this.onKeyLine = true;
             this.stack[this.stack.length - 1] = map;
@@ -7367,8 +7367,8 @@ var require_dist2 = __commonJS({
 });
 
 // src/cli.mjs
-import { readFile, writeFile, mkdir, stat, realpath } from "node:fs/promises";
-import { dirname as dirname2, resolve as resolve2 } from "node:path";
+import { readFile as readFile2, writeFile, mkdir, stat as stat2, realpath } from "node:fs/promises";
+import { dirname as dirname2, relative as relative2, resolve as resolve2 } from "node:path";
 import { fileURLToPath as fileURLToPath3 } from "node:url";
 
 // node_modules/@google/design.md/dist/linter/index.js
@@ -10962,10 +10962,10 @@ var require_resolve_block_map = __commonJS2((exports) => {
     let offset = bm.offset;
     let commentEnd = null;
     for (const collItem of bm.items) {
-      const { start, key, sep, value: value2 } = collItem;
+      const { start, key, sep: sep2, value: value2 } = collItem;
       const keyProps = resolveProps.resolveProps(start, {
         indicator: "explicit-key-ind",
-        next: key ?? sep?.[0],
+        next: key ?? sep2?.[0],
         offset,
         onError,
         parentIndent: bm.indent,
@@ -10979,7 +10979,7 @@ var require_resolve_block_map = __commonJS2((exports) => {
           else if ("indent" in key && key.indent !== bm.indent)
             onError(offset, "BAD_INDENT", startColMsg);
         }
-        if (!keyProps.anchor && !keyProps.tag && !sep) {
+        if (!keyProps.anchor && !keyProps.tag && !sep2) {
           commentEnd = keyProps.end;
           if (keyProps.comment) {
             if (map.comment)
@@ -11004,7 +11004,7 @@ var require_resolve_block_map = __commonJS2((exports) => {
       ctx.atKey = false;
       if (utilMapIncludes.mapIncludes(ctx, map.items, keyNode))
         onError(keyStart, "DUPLICATE_KEY", "Map keys must be unique");
-      const valueProps = resolveProps.resolveProps(sep ?? [], {
+      const valueProps = resolveProps.resolveProps(sep2 ?? [], {
         indicator: "map-value-ind",
         next: value2,
         offset: keyNode.range[2],
@@ -11020,7 +11020,7 @@ var require_resolve_block_map = __commonJS2((exports) => {
           if (ctx.options.strict && keyProps.start < valueProps.found.offset - 1024)
             onError(keyNode.range, "KEY_OVER_1024_CHARS", "The : indicator must be at most 1024 chars after the start of an implicit block mapping key");
         }
-        const valueNode = value2 ? composeNode(ctx, value2, valueProps, onError) : composeEmptyNode(ctx, offset, sep, null, valueProps, onError);
+        const valueNode = value2 ? composeNode(ctx, value2, valueProps, onError) : composeEmptyNode(ctx, offset, sep2, null, valueProps, onError);
         if (ctx.schema.compat)
           utilFlowIndentCheck.flowIndentCheck(bm.indent, value2, onError);
         offset = valueNode.range[2];
@@ -11102,7 +11102,7 @@ var require_resolve_end = __commonJS2((exports) => {
     let comment = "";
     if (end) {
       let hasSpace = false;
-      let sep = "";
+      let sep2 = "";
       for (const token of end) {
         const { source, type } = token;
         switch (type) {
@@ -11116,13 +11116,13 @@ var require_resolve_end = __commonJS2((exports) => {
             if (!comment)
               comment = cb;
             else
-              comment += sep + cb;
-            sep = "";
+              comment += sep2 + cb;
+            sep2 = "";
             break;
           }
           case "newline":
             if (comment)
-              sep += source;
+              sep2 += source;
             hasSpace = true;
             break;
           default:
@@ -11160,18 +11160,18 @@ var require_resolve_flow_collection = __commonJS2((exports) => {
     let offset = fc.offset + fc.start.source.length;
     for (let i = 0; i < fc.items.length; ++i) {
       const collItem = fc.items[i];
-      const { start, key, sep, value: value2 } = collItem;
+      const { start, key, sep: sep2, value: value2 } = collItem;
       const props = resolveProps.resolveProps(start, {
         flow: fcName,
         indicator: "explicit-key-ind",
-        next: key ?? sep?.[0],
+        next: key ?? sep2?.[0],
         offset,
         onError,
         parentIndent: fc.indent,
         startOnNewline: false
       });
       if (!props.found) {
-        if (!props.anchor && !props.tag && !sep && !value2) {
+        if (!props.anchor && !props.tag && !sep2 && !value2) {
           if (i === 0 && props.comma)
             onError(props.comma, "UNEXPECTED_TOKEN", `Unexpected , in ${fcName}`);
           else if (i < fc.items.length - 1)
@@ -11223,8 +11223,8 @@ var require_resolve_flow_collection = __commonJS2((exports) => {
           }
         }
       }
-      if (!isMap && !sep && !props.found) {
-        const valueNode = value2 ? composeNode(ctx, value2, props, onError) : composeEmptyNode(ctx, props.end, sep, null, props, onError);
+      if (!isMap && !sep2 && !props.found) {
+        const valueNode = value2 ? composeNode(ctx, value2, props, onError) : composeEmptyNode(ctx, props.end, sep2, null, props, onError);
         coll.items.push(valueNode);
         offset = valueNode.range[2];
         if (isBlock(value2))
@@ -11236,7 +11236,7 @@ var require_resolve_flow_collection = __commonJS2((exports) => {
         if (isBlock(key))
           onError(keyNode.range, "BLOCK_IN_FLOW", blockMsg);
         ctx.atKey = false;
-        const valueProps = resolveProps.resolveProps(sep ?? [], {
+        const valueProps = resolveProps.resolveProps(sep2 ?? [], {
           flow: fcName,
           indicator: "map-value-ind",
           next: value2,
@@ -11247,8 +11247,8 @@ var require_resolve_flow_collection = __commonJS2((exports) => {
         });
         if (valueProps.found) {
           if (!isMap && !props.found && ctx.options.strict) {
-            if (sep)
-              for (const st of sep) {
+            if (sep2)
+              for (const st of sep2) {
                 if (st === valueProps.found)
                   break;
                 if (st.type === "newline") {
@@ -11265,7 +11265,7 @@ var require_resolve_flow_collection = __commonJS2((exports) => {
           else
             onError(valueProps.start, "MISSING_CHAR", `Missing , or : between ${fcName} items`);
         }
-        const valueNode = value2 ? composeNode(ctx, value2, valueProps, onError) : valueProps.found ? composeEmptyNode(ctx, valueProps.end, sep, null, valueProps, onError) : null;
+        const valueNode = value2 ? composeNode(ctx, value2, valueProps, onError) : valueProps.found ? composeEmptyNode(ctx, valueProps.end, sep2, null, valueProps, onError) : null;
         if (valueNode) {
           if (isBlock(value2))
             onError(valueNode.range, "BLOCK_IN_FLOW", blockMsg);
@@ -11438,7 +11438,7 @@ var require_resolve_block_scalar = __commonJS2((exports) => {
         chompStart = i + 1;
     }
     let value2 = "";
-    let sep = "";
+    let sep2 = "";
     let prevMoreIndented = false;
     for (let i = 0; i < contentStart; ++i)
       value2 += lines[i][0].slice(trimIndent) + `
@@ -11456,33 +11456,33 @@ var require_resolve_block_scalar = __commonJS2((exports) => {
         indent = "";
       }
       if (type === Scalar.Scalar.BLOCK_LITERAL) {
-        value2 += sep + indent.slice(trimIndent) + content3;
-        sep = `
+        value2 += sep2 + indent.slice(trimIndent) + content3;
+        sep2 = `
 `;
       } else if (indent.length > trimIndent || content3[0] === "	") {
-        if (sep === " ")
-          sep = `
+        if (sep2 === " ")
+          sep2 = `
 `;
-        else if (!prevMoreIndented && sep === `
+        else if (!prevMoreIndented && sep2 === `
 `)
-          sep = `
+          sep2 = `
 
 `;
-        value2 += sep + indent.slice(trimIndent) + content3;
-        sep = `
+        value2 += sep2 + indent.slice(trimIndent) + content3;
+        sep2 = `
 `;
         prevMoreIndented = true;
       } else if (content3 === "") {
-        if (sep === `
+        if (sep2 === `
 `)
           value2 += `
 `;
         else
-          sep = `
+          sep2 = `
 `;
       } else {
-        value2 += sep + content3;
-        sep = " ";
+        value2 += sep2 + content3;
+        sep2 = " ";
         prevMoreIndented = false;
       }
     }
@@ -11661,27 +11661,27 @@ var require_resolve_flow_scalar = __commonJS2((exports) => {
     if (!match)
       return source;
     let res = match[1];
-    let sep = " ";
+    let sep2 = " ";
     let pos = first.lastIndex;
     line.lastIndex = pos;
     while (match = line.exec(source)) {
       if (match[1] === "") {
-        if (sep === `
+        if (sep2 === `
 `)
-          res += sep;
+          res += sep2;
         else
-          sep = `
+          sep2 = `
 `;
       } else {
-        res += sep + match[1];
-        sep = " ";
+        res += sep2 + match[1];
+        sep2 = " ";
       }
       pos = line.lastIndex;
     }
     const last = /[ \t]*(.*)/sy;
     last.lastIndex = pos;
     match = last.exec(source);
-    return res + sep + (match?.[1] ?? "");
+    return res + sep2 + (match?.[1] ?? "");
   }
   function doubleQuotedValue(source, onError) {
     let res = "";
@@ -12444,14 +12444,14 @@ var require_cst_stringify = __commonJS2((exports) => {
       }
     }
   }
-  function stringifyItem({ start, key, sep, value: value2 }) {
+  function stringifyItem({ start, key, sep: sep2, value: value2 }) {
     let res = "";
     for (const st of start)
       res += st.source;
     if (key)
       res += stringifyToken(key);
-    if (sep)
-      for (const st of sep)
+    if (sep2)
+      for (const st of sep2)
         res += st.source;
     if (value2)
       res += stringifyToken(value2);
@@ -13570,18 +13570,18 @@ var require_parser = __commonJS2((exports) => {
       if (this.type === "map-value-ind") {
         const prev = getPrevProps(this.peek(2));
         const start = getFirstKeyStartProps(prev);
-        let sep;
+        let sep2;
         if (scalar.end) {
-          sep = scalar.end;
-          sep.push(this.sourceToken);
+          sep2 = scalar.end;
+          sep2.push(this.sourceToken);
           delete scalar.end;
         } else
-          sep = [this.sourceToken];
+          sep2 = [this.sourceToken];
         const map = {
           type: "block-map",
           offset: scalar.offset,
           indent: scalar.indent,
-          items: [{ start, key: scalar, sep }]
+          items: [{ start, key: scalar, sep: sep2 }]
         };
         this.onKeyLine = true;
         this.stack[this.stack.length - 1] = map;
@@ -13735,15 +13735,15 @@ var require_parser = __commonJS2((exports) => {
               } else if (isFlowToken(it.key) && !includesToken(it.sep, "newline")) {
                 const start2 = getFirstKeyStartProps(it.start);
                 const key = it.key;
-                const sep = it.sep;
-                sep.push(this.sourceToken);
+                const sep2 = it.sep;
+                sep2.push(this.sourceToken);
                 delete it.key;
                 delete it.sep;
                 this.stack.push({
                   type: "block-map",
                   offset: this.offset,
                   indent: this.indent,
-                  items: [{ start: start2, key, sep }]
+                  items: [{ start: start2, key, sep: sep2 }]
                 });
               } else if (start.length > 0) {
                 it.sep = it.sep.concat(start, this.sourceToken);
@@ -13937,13 +13937,13 @@ var require_parser = __commonJS2((exports) => {
           const prev = getPrevProps(parent);
           const start = getFirstKeyStartProps(prev);
           fixFlowSeqItems(fc);
-          const sep = fc.end.splice(1, fc.end.length);
-          sep.push(this.sourceToken);
+          const sep2 = fc.end.splice(1, fc.end.length);
+          sep2.push(this.sourceToken);
           const map = {
             type: "block-map",
             offset: fc.offset,
             indent: fc.indent,
-            items: [{ start, key: fc, sep }]
+            items: [{ start, key: fc, sep: sep2 }]
           };
           this.onKeyLine = true;
           this.stack[this.stack.length - 1] = map;
@@ -15292,18 +15292,18 @@ var VFile = class {
   get extname() {
     return typeof this.path === "string" ? default2.extname(this.path) : void 0;
   }
-  set extname(extname) {
-    assertPart(extname, "extname");
+  set extname(extname2) {
+    assertPart(extname2, "extname");
     assertPath(this.dirname, "extname");
-    if (extname) {
-      if (extname.codePointAt(0) !== 46) {
+    if (extname2) {
+      if (extname2.codePointAt(0) !== 46) {
         throw new Error("`extname` must start with `.`");
       }
-      if (extname.includes(".", 1)) {
+      if (extname2.includes(".", 1)) {
         throw new Error("`extname` cannot contain multiple dots");
       }
     }
-    this.path = default2.join(this.dirname, this.stem + (extname || ""));
+    this.path = default2.join(this.dirname, this.stem + (extname2 || ""));
   }
   get path() {
     return this.history[this.history.length - 1];
@@ -29702,8 +29702,220 @@ function languageReport(content3, label = "input") {
   return { file: label, standard: "ASD-STE100 Issue 9", coverage: "selected length, contraction, and verb checks; no dictionary, grammar, or meaning certification", errors: findings.filter((f) => f.severity === "error").length, warnings: findings.filter((f) => f.severity === "warning").length, findings };
 }
 
+// src/check.mjs
+import { readFile, readdir, stat } from "node:fs/promises";
+import { extname, join, relative, sep } from "node:path";
+var RULES = {
+  "color-value": { severity: "error", text: "Color value is not a design token value." },
+  "color-function": { severity: "error", text: "Color function is not a design token value." },
+  "palette-class": { severity: "error", text: "Utility palette class is not a design token." },
+  "dimension-value": { severity: "warning", text: "Dimension is not a token value for this property." },
+  "font-family": { severity: "error", text: "Font family is not in the design typography." },
+  "avoid-gradient": { severity: "error", text: "Gradient is in the design must-avoid list." },
+  "avoid-blur": { severity: "error", text: "Background blur is in the design must-avoid list." },
+  "avoid-emoji": { severity: "error", text: "Emoji is in the design must-avoid list." },
+  "avoid-shadow": { severity: "error", text: "Shadow is in the design must-avoid list." },
+  "exception-reason": { severity: "error", text: "Exception comment has no reason." }
+};
+var DEFAULT_EXTENSIONS = [".css", ".scss", ".sass", ".less", ".ts", ".tsx", ".js", ".jsx", ".mjs", ".cjs", ".html", ".vue", ".svelte", ".astro", ".mdx"];
+var DEFAULT_IGNORE = ["node_modules", ".git", ".next", ".nuxt", ".svelte-kit", ".turbo", ".vercel", "dist", "build", "out", "coverage", "vendor"];
+var MARKUP = /* @__PURE__ */ new Set([".ts", ".tsx", ".js", ".jsx", ".mjs", ".cjs", ".html", ".vue", ".svelte", ".astro", ".mdx"]);
+var GENERIC_FONTS = /* @__PURE__ */ new Set(["serif", "sans-serif", "monospace", "cursive", "fantasy", "system-ui", "ui-serif", "ui-sans-serif", "ui-monospace", "ui-rounded", "math", "emoji", "fangsong", "inherit", "initial", "unset", "revert"]);
+var PALETTE = "slate|gray|grey|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose";
+var PALETTE_CLASS = new RegExp(`(?<![\\w-])(?:[a-z]+:)*(?:bg|text|border(?:-[trblxy])?|ring|ring-offset|outline|from|via|to|fill|stroke|decoration|shadow|accent|caret|divide|placeholder)-(?:${PALETTE})-(?:50|[1-9]00|950)(?:\\/\\d+)?(?![\\w-])`, "g");
+var HEX = /(?<![\w&])#(?:[0-9a-fA-F]{8}|[0-9a-fA-F]{6}|[0-9a-fA-F]{3,4})(?![0-9a-zA-Z_-])/g;
+var COLOR_FUNCTION = /\b(?:rgba?|hsla?|hwb|lab|lch|oklab|oklch|color)\(\s*[^)]*\)/g;
+var CSS_DIMENSION = /\b(margin(?:-[a-z]+)?|padding(?:-[a-z]+)?|gap|row-gap|column-gap|border(?:-[a-z]+)*-radius|font-size|letter-spacing)\s*:\s*([^;{}\n]+)/g;
+var UTILITY_DIMENSION = /(?<![\w-])(?:[a-z]+:)*(p[xytrbl]?|m[xytrbl]?|gap(?:-[xy])?|space-[xy]|rounded(?:-[a-z]+)?|text|tracking)-\[(-?\d*\.?\d+)(px|rem)\]/g;
+var FONT_DECLARATION = /font-family\s*:\s*([^;{}\n]+)/g;
+var NEXT_FONT = /import\s*\{([^}]+)\}\s*from\s*['"]next\/font\/google['"]/g;
+var GOOGLE_FONT_URL = /fonts\.googleapis\.com\/css2?\?family=([A-Za-z0-9+]+)/g;
+var EXCEPTION = /design-check-ignore(?:-next-line)?\s+([a-z-]+)(?:\s*:\s*(\S.*?))?\s*(?:\*\/|-->|\}|$)/;
+var AVOID = [
+  { rule: "avoid-gradient", words: /gradient/i, pattern: /\b(?:repeating-)?(?:linear|radial|conic)-gradient\(|(?<![\w-])(?:[a-z]+:)*bg-(?:gradient-to|linear|radial|conic)-[\w-]+/g },
+  { rule: "avoid-blur", words: /glass|blur|translucent/i, pattern: /backdrop-filter\s*:|(?<![\w-])(?:[a-z]+:)*backdrop-blur(?:-[\w]+)?(?![\w-])/g },
+  { rule: "avoid-emoji", words: /emoji/i, pattern: new RegExp("(?![\\u00A9\\u00AE\\u2122\\u203C\\u2049])\\p{Extended_Pictographic}", "gu"), markupOnly: true },
+  { rule: "avoid-shadow", words: /shadow/i, pattern: /box-shadow\s*:\s*(?!none\b)|(?<![\w-])(?:[a-z]+:)*shadow-(?:xs|sm|md|lg|xl|2xl|inner)(?![\w-])/g }
+];
+var upperHex = (value2) => {
+  let hex = value2.slice(1).toUpperCase();
+  if (hex.length === 3 || hex.length === 4) hex = [...hex].map((c) => c + c).join("");
+  return `#${hex.slice(0, 6)}`;
+};
+var px = (value2, unit) => unit === "rem" ? Number(value2) * 16 : Number(value2);
+function designRules(tokens) {
+  const resolved = resolveValue(tokens, tokens);
+  const zsd = object(resolved["x-zsd"]) ? resolved["x-zsd"] : {};
+  const colors = /* @__PURE__ */ new Set();
+  const addColors = (group) => {
+    if (!object(group)) return;
+    for (const value2 of Object.values(group)) if (typeof value2 === "string" && /^#[0-9A-Fa-f]{6,8}$/.test(value2)) colors.add(upperHex(value2));
+  };
+  addColors(resolved.colors);
+  if (object(zsd.modes)) for (const mode of Object.values(zsd.modes)) addColors(mode?.colors);
+  const dimensions = { spacing: /* @__PURE__ */ new Set([0]), radius: /* @__PURE__ */ new Set([0]), fontSize: /* @__PURE__ */ new Set(), letterSpacing: /* @__PURE__ */ new Set([0]) };
+  const addDimension = (kind, value2) => {
+    const match = typeof value2 === "string" && value2.match(/^(-?\d*\.?\d+)(px|rem)$/);
+    if (match) dimensions[kind].add(Math.abs(px(match[1], match[2])));
+  };
+  for (const group of [resolved.spacing, zsd.layout, zsd.border, zsd.accessibility]) if (object(group)) for (const v of Object.values(group)) addDimension("spacing", v);
+  if (object(resolved.rounded)) for (const v of Object.values(resolved.rounded)) addDimension("radius", v);
+  const fonts = /* @__PURE__ */ new Set();
+  if (object(resolved.typography)) {
+    for (const role of Object.values(resolved.typography)) {
+      if (!object(role)) continue;
+      addDimension("fontSize", role.fontSize);
+      addDimension("letterSpacing", role.letterSpacing);
+      if (typeof role.fontFamily === "string") for (const name of role.fontFamily.split(",")) fonts.add(name.trim().replace(/^['"]|['"]$/g, "").toLowerCase());
+    }
+  }
+  const avoid = Array.isArray(zsd.preferences?.["must-avoid"]) ? zsd.preferences["must-avoid"] : [];
+  const active = AVOID.filter((item) => avoid.some((text3) => item.words.test(String(text3))));
+  const unchecked = avoid.filter((text3) => !AVOID.some((item) => item.words.test(String(text3))));
+  return { colors, dimensions, fonts, active, unchecked };
+}
+function globToRegex(glob) {
+  const source = glob.split("**").map((part) => part.split("*").map((piece) => piece.replace(/[.+^${}()|[\]\\?]/g, "\\$&")).join("[^/]*")).join(".*");
+  return new RegExp(`^${source}$`);
+}
+async function sourceFiles(root, config2) {
+  const extensions2 = new Set(config2.extensions ?? DEFAULT_EXTENSIONS);
+  const names = /* @__PURE__ */ new Set([...DEFAULT_IGNORE, ...config2.ignoreDirectories ?? []]);
+  const patterns = (config2.ignore ?? []).map(globToRegex);
+  const files = [];
+  async function walk(folder) {
+    for (const entry of await readdir(folder, { withFileTypes: true })) {
+      const path = join(folder, entry.name);
+      const rel = relative(root, path).split(sep).join("/");
+      if (patterns.some((pattern) => pattern.test(rel))) continue;
+      if (entry.isDirectory()) {
+        if (!names.has(entry.name)) await walk(path);
+      } else if (entry.isFile() && extensions2.has(extname(entry.name))) {
+        if ((await stat(path)).size <= 1024 * 1024) files.push(rel);
+      }
+    }
+  }
+  await walk(root);
+  return files.sort();
+}
+function exceptionsFor(lines) {
+  const map = /* @__PURE__ */ new Map();
+  const problems = [];
+  lines.forEach((line, index2) => {
+    const match = line.match(EXCEPTION);
+    if (!match) return;
+    const target = line.includes("design-check-ignore-next-line") ? index2 + 1 : index2;
+    if (!match[2]) problems.push({ line: index2 + 1, column: line.indexOf("design-check-ignore") + 1, text: match[0].trim() });
+    else {
+      if (!map.has(target)) map.set(target, /* @__PURE__ */ new Set());
+      map.get(target).add(match[1]);
+    }
+  });
+  return { map, problems };
+}
+function checkText(content3, file, rules) {
+  const findings = [];
+  const markup = MARKUP.has(extname(file));
+  const lines = content3.split(/\r?\n/);
+  const { map, problems } = exceptionsFor(lines);
+  for (const p of problems) findings.push({ rule: "exception-reason", file, ...p });
+  const add = (rule, index2, column, text3, detail) => {
+    if (map.get(index2)?.has(rule)) return;
+    findings.push({ rule, file, line: index2 + 1, column: column + 1, text: text3, ...detail ? { detail } : {} });
+  };
+  lines.forEach((line, index2) => {
+    if (EXCEPTION.test(line) && !/[;:{]/.test(line.replace(EXCEPTION, ""))) return;
+    for (const m of line.matchAll(HEX)) if (!rules.colors.has(upperHex(m[0]))) add("color-value", index2, m.index, m[0]);
+    for (const m of line.matchAll(COLOR_FUNCTION)) if (!/var\(/.test(m[0])) add("color-function", index2, m.index, m[0]);
+    for (const m of line.matchAll(PALETTE_CLASS)) add("palette-class", index2, m.index, m[0]);
+    for (const m of line.matchAll(CSS_DIMENSION)) {
+      const kind = kindOf(m[1]);
+      for (const d of m[2].matchAll(/(-?\d*\.?\d+)(px|rem)\b/g)) {
+        if (!rules.dimensions[kind].has(Math.abs(px(d[1], d[2])))) add("dimension-value", index2, m.index + m[0].indexOf(d[0], m[1].length), d[0], `${m[1]}: not a ${kind} token value`);
+      }
+    }
+    for (const m of line.matchAll(UTILITY_DIMENSION)) {
+      const kind = kindOf(m[1]);
+      if (!rules.dimensions[kind].has(Math.abs(px(m[2], m[3])))) add("dimension-value", index2, m.index, m[0], `not a ${kind} token value`);
+    }
+    for (const m of line.matchAll(FONT_DECLARATION)) {
+      for (const raw of m[1].split(",")) {
+        const name = raw.trim().replace(/!important$/, "").trim().replace(/^['"]|['"]$/g, "");
+        if (!name || /var\(|^inherit$/i.test(name) || GENERIC_FONTS.has(name.toLowerCase())) continue;
+        if (!rules.fonts.has(name.toLowerCase())) add("font-family", index2, m.index, name);
+      }
+    }
+    for (const m of line.matchAll(GOOGLE_FONT_URL)) {
+      const name = decodeURIComponent(m[1]).replace(/\+/g, " ");
+      if (!rules.fonts.has(name.toLowerCase())) add("font-family", index2, m.index, name);
+    }
+    for (const avoid of rules.active) {
+      if (avoid.markupOnly && !markup) continue;
+      for (const m of line.matchAll(avoid.pattern)) add(avoid.rule, index2, m.index, m[0].trim());
+    }
+  });
+  for (const m of content3.matchAll(NEXT_FONT)) {
+    const index2 = content3.slice(0, m.index).split("\n").length - 1;
+    for (const raw of m[1].split(",")) {
+      const name = raw.trim().split(/\s+as\s+/)[0].replace(/_/g, " ");
+      if (name && !rules.fonts.has(name.toLowerCase())) add("font-family", index2, 0, name);
+    }
+  }
+  return findings;
+}
+function kindOf(name) {
+  if (/radius|^rounded/.test(name)) return "radius";
+  if (/^font-size$|^text$/.test(name)) return "fontSize";
+  if (/letter-spacing|^tracking$/.test(name)) return "letterSpacing";
+  return "spacing";
+}
+var fingerprint = (f) => `${f.rule}|${f.file}|${f.text}`;
+async function checkCode(tokens, { root, config: config2 = {}, known = null }) {
+  const rules = designRules(tokens);
+  const severities = Object.fromEntries(Object.entries(RULES).map(([id, rule]) => [id, config2.rules?.[id] ?? rule.severity]));
+  const files = await sourceFiles(root, config2);
+  const all2 = [];
+  for (const file of files) all2.push(...checkText(await readFile(join(root, file), "utf8"), file, rules));
+  const findings = all2.filter((f) => severities[f.rule] !== "off").map((f) => ({ ...f, severity: severities[f.rule], message: RULES[f.rule].text }));
+  const allowance = /* @__PURE__ */ new Map();
+  for (const item of known?.defects ?? []) allowance.set(fingerprint(item), (allowance.get(fingerprint(item)) ?? 0) + (item.count ?? 1));
+  for (const f of findings) {
+    const key = fingerprint(f);
+    const left = allowance.get(key) ?? 0;
+    if (left > 0) {
+      f.known = true;
+      allowance.set(key, left - 1);
+    }
+  }
+  const fixed = [...allowance.entries()].filter(([, left]) => left > 0).map(([key, count]) => ({ key, count }));
+  const open = findings.filter((f) => !f.known);
+  return {
+    files: files.length,
+    errors: open.filter((f) => f.severity === "error").length,
+    warnings: open.filter((f) => f.severity === "warning").length,
+    known: findings.length - open.length,
+    fixedKnown: fixed,
+    findings,
+    permitted: { colors: [...rules.colors].sort(), dimensions: Object.fromEntries(Object.entries(rules.dimensions).map(([k, v]) => [k, [...v].sort((a, b) => a - b)])), fonts: [...rules.fonts].sort() },
+    coverage: {
+      checked: ["color values and functions", "utility palette classes", "spacing, radius, and font size dimensions", "font families", ...rules.active.map((a) => a.rule)],
+      notChecked: [...rules.unchecked.map((text3) => `must-avoid: ${text3}`), "utility scale classes such as p-4 or text-sm", "layout quality", "computed contrast", "component states", "responsive behavior"]
+    }
+  };
+}
+function knownDefects(report, design) {
+  const counts = /* @__PURE__ */ new Map();
+  for (const f of report.findings) {
+    const key = fingerprint(f);
+    const item = counts.get(key) ?? { rule: f.rule, file: f.file, text: f.text, count: 0 };
+    item.count += 1;
+    counts.set(key, item);
+  }
+  return { version: 1, design, defects: [...counts.values()].sort((a, b) => fingerprint(a).localeCompare(fingerprint(b))) };
+}
+
 // src/cli.mjs
-var help = `zero-slop-design 0.1.0 \u2014 DESIGN.md tools
+var help = `zero-slop-design 0.2.0 \u2014 DESIGN.md tools
 
   zsd lint FILE [--json] [--strict]
   zsd init FILE [--force]
@@ -29711,6 +29923,7 @@ var help = `zero-slop-design 0.1.0 \u2014 DESIGN.md tools
   zsd drift FILE OBSERVATIONS.json [--json]
   zsd export FILE --format css|dtcg|tailwind [--mode NAME] [--out FILE] [--report FILE] [--force]
   zsd language FILE [--json]
+  zsd check-code FILE [--config FILE] [--known FILE] [--update-known] [--json] [--strict]
   zsd help
 
 Use: node /absolute/plugin/path/tools/zsd.mjs COMMAND
@@ -29718,11 +29931,13 @@ Exit codes: 0 success; 1 findings or unsupported export; 2 input or operation er
 Export writes stdout unless --out is supplied. Diagnostics use stderr.
 Files are not overwritten unless --force is supplied.
 Language checks cover selected writing conditions, not full STE conformance.
+Code checks find literal values and prohibited patterns only. They do not examine layout,
+computed contrast, component states, or visual quality.
 `;
 function argumentsFor(args) {
   const paths = [], options = {};
-  const flags = /* @__PURE__ */ new Set(["json", "strict", "force"]);
-  const valued = /* @__PURE__ */ new Set(["format", "mode", "out", "report"]);
+  const flags = /* @__PURE__ */ new Set(["json", "strict", "force", "update-known"]);
+  const valued = /* @__PURE__ */ new Set(["format", "mode", "out", "report", "config", "known"]);
   for (let i = 0; i < args.length; i++) {
     if (!args[i].startsWith("--")) {
       paths.push(args[i]);
@@ -29739,9 +29954,9 @@ function argumentsFor(args) {
 }
 async function read(path) {
   if (!path) throw new Error("Supply a file path.");
-  const info = await stat(path);
+  const info = await stat2(path);
   if (!info.isFile() || info.size > 1024 * 1024) throw new Error("The input must be a file of at most 1 MiB.");
-  return readFile(path, "utf8");
+  return readFile2(path, "utf8");
 }
 async function output(path, data, force) {
   await mkdir(dirname2(resolve2(path)), { recursive: true });
@@ -29770,6 +29985,49 @@ function print(report, asJSON) {
 `);
   } else process.stdout.write(json(report));
 }
+function printCheck(report) {
+  for (const f of report.findings) {
+    if (f.known) continue;
+    process.stdout.write(`${f.file}:${f.line}:${f.column} ${f.severity} ${f.rule} ${JSON.stringify(f.text)}: ${f.message}
+`);
+  }
+  process.stdout.write(`check-code: ${report.files} files, ${report.errors} errors, ${report.warnings} warnings, ${report.known} known
+`);
+  for (const item of report.fixedKnown) process.stdout.write(`note: known defect no longer found: ${item.key}
+`);
+  process.stdout.write(`Not checked: ${report.coverage.notChecked.join("; ")}
+`);
+}
+async function codeCheck(designPath, content3, options) {
+  const { tokens } = parseDesign(content3);
+  const designDir = dirname2(resolve2(designPath));
+  let config2 = {}, root = designDir;
+  if (options.config) {
+    config2 = JSON.parse(await read(options.config));
+    root = resolve2(dirname2(resolve2(options.config)), config2.root ?? ".");
+  }
+  const knownPath = options.known ?? config2.known;
+  const knownFile = knownPath ? resolve2(options.known ? "." : dirname2(resolve2(options.config)), knownPath) : null;
+  let known = null;
+  if (knownFile && !options["update-known"]) {
+    try {
+      known = JSON.parse(await readFile2(knownFile, "utf8"));
+    } catch (error) {
+      if (error.code !== "ENOENT") throw error;
+    }
+  }
+  const report = await checkCode(tokens, { root, config: config2, known });
+  if (options["update-known"]) {
+    if (!knownFile) throw new Error("Supply --known FILE or a known path in the configuration.");
+    await output(knownFile, json(knownDefects(report, relative2(dirname2(knownFile), resolve2(designPath)))), true);
+    process.stdout.write(`Known defect list written: ${knownFile} (${report.findings.length} defects)
+`);
+    return 0;
+  }
+  if (options.json) process.stdout.write(json(report));
+  else printCheck(report);
+  return report.errors || options.strict && report.warnings ? 1 : 0;
+}
 async function main(args = process.argv.slice(2)) {
   const command = args.shift() ?? "help";
   if (command === "help" || command === "--help" || command === "-h") {
@@ -29777,7 +30035,7 @@ async function main(args = process.argv.slice(2)) {
     return 0;
   }
   const { paths, options } = argumentsFor(args);
-  const specs = { lint: { count: 1, flags: ["json", "strict"] }, init: { count: 1, flags: ["force"] }, diff: { count: 2, flags: ["json"] }, drift: { count: 2, flags: ["json"] }, export: { count: 1, flags: ["format", "mode", "out", "report", "force"] }, language: { count: 1, flags: ["json"] } };
+  const specs = { lint: { count: 1, flags: ["json", "strict"] }, init: { count: 1, flags: ["force"] }, diff: { count: 2, flags: ["json"] }, drift: { count: 2, flags: ["json"] }, export: { count: 1, flags: ["format", "mode", "out", "report", "force"] }, language: { count: 1, flags: ["json"] }, "check-code": { count: 1, flags: ["json", "strict", "config", "known", "update-known"] } };
   if (!Object.hasOwn(specs, command)) throw new Error(`Unknown command: ${command}.`);
   if (paths.length !== specs[command].count) throw new Error(`${command} needs ${specs[command].count} file path(s).`);
   for (const key of Object.keys(options)) if (!specs[command].flags.includes(key)) throw new Error(`Option --${key} is not available for ${command}.`);
@@ -29796,6 +30054,7 @@ Replace example selections and unresolved data.
     print(report, options.json);
     return report.summary.errors || options.strict && report.summary.warnings ? 1 : 0;
   }
+  if (command === "check-code") return codeCheck(paths[0], content3, options);
   if (command === "language") {
     const report = languageReport(content3, paths[0]);
     print(report, options.json);

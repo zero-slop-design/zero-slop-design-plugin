@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "standard": "ASD-STE100 Issue 9",
   "skills": [
     {
@@ -92,6 +92,13 @@
       "category": "specialty",
       "path": "skills/export-design-tokens",
       "description": "Export DESIGN.md tokens as CSS, DTCG JSON, or Tailwind theme data. Use to connect design values to a project token source."
+    },
+    {
+      "name": "enforce-design",
+      "title": "Design code checks",
+      "category": "core",
+      "path": "skills/enforce-design",
+      "description": "Add design code checks from DESIGN.md to a project and its continuous integration. Use to stop changes with colors, sizes, fonts, or effects that the design file does not permit."
     }
   ]
 }

@@ -1925,6 +1925,69 @@
       "forms": [
         "bases"
       ]
+    },
+    {
+      "term": "code check",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A software check that compares source code with resolved design tokens and design rules.",
+      "forms": [
+        "code checks"
+      ]
+    },
+    {
+      "term": "continuous integration",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A service that does specified commands for each change to a repository.",
+      "forms": [
+        "continuous integrations"
+      ]
+    },
+    {
+      "term": "exception comment",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A source code comment that stops one code check rule on one line and gives the cause.",
+      "forms": [
+        "exception comments"
+      ]
+    },
+    {
+      "term": "finding",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "One result of a lint or a code check that shows a possible defect.",
+      "forms": [
+        "findings"
+      ]
+    },
+    {
+      "term": "known defect",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A defect that the developer accepts until a specified correction.",
+      "forms": [
+        "known defects"
+      ]
+    },
+    {
+      "term": "known defect list",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A file that records the known defects of a project.",
+      "forms": [
+        "known defect lists"
+      ]
+    },
+    {
+      "term": "package script",
+      "partOfSpeech": "noun",
+      "category": "software",
+      "meaning": "A named command in the project package file.",
+      "forms": [
+        "package scripts"
+      ]
     }
   ]
 }
